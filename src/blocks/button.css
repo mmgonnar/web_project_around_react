@@ -7,7 +7,7 @@
 }
 
 .button_edit {
-  background: url(../../public/icons/edit_avatar_button.svg) no-repeat center;
+  background: url(../../public/icons/edit_button.svg) no-repeat center;
   width: 24px;
   height: 24px;
   border: 1px solid #fff;
