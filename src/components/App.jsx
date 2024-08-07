@@ -1,12 +1,12 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import Profile from "./Profile";
+import Main from "./Main";
 
 function App() {
   return (
     <>
       <Header />
-      <Profile />
+      <Main />
       <Footer />
     </>
   );
