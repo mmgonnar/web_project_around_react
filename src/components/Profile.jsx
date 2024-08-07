@@ -2,7 +2,11 @@ const Profile = () => {
   return (
     <section class="profile">
       <div class="profile__container">
-        <img src="/profile.jpg" alt="profile__avatar" class="profile__avatar" />
+        <img
+          src="/images/profile.png"
+          alt="profile avatar"
+          class="profile__avatar"
+        />
         <button class="button button_edit-avatar"></button>
         <div class="profile__overlay"></div>
       </div>
