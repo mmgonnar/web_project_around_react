@@ -1,4 +1,19 @@
+import { useState } from "react";
+
 const Profile = () => {
+  const [show, setShow] = useState(false);
+
+  const handleEditAvatarClick = () => {
+    const editAvatarClick = document.querySelector(".profile__avatar");
+    if (editAvatarClick) {
+      editAvatarClick.classList.add("popup-opened");
+      setShow(true);
+    }
+  };
+
+  const handleEditProfileClick = () => {};
+  const handleAddPlaceClick = () => {};
+
   return (
     <section class="profile">
       <div class="profile__container">
