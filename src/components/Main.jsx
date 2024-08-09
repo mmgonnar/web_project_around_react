@@ -23,6 +23,7 @@ const Main = (props) => {
 
   const handlers = {
     add: setAddPlacePopupOpen,
+    avatar: setAvatarPopupOpen,
   };
 
   const handleClose = (popupId) => {
@@ -162,47 +163,28 @@ const Main = (props) => {
       </div>
       {/* Popup Avatar */}
       {isAvatarPopupOpen && (
-        <div class="popup popup_avatar popup_show">
-          <div class="popup__overlay"></div>
-          <div class="popup__content popup__content-avatar">
-            <div class="popup__container">
-              <button class="button button_close"></button>
-              <span class="popup__title">Change profile</span>
-              <form
-                class="popup__form popup__form_avatar"
-                id="form-avatar"
-                novalidate
-              >
-                <fieldset class="popup__set">
-                  <div class="popup__container-input">
-                    <input
-                      type="url"
-                      name="url-avatar"
-                      id="input-image-avatar"
-                      class="popup__input popup__input-image"
-                      placeholder="Image URL"
-                      minlength="6"
-                      required
-                      autocomplete="on"
-                    />
-                    <span
-                      class="popup__error"
-                      id="input__error-url-avatar"
-                    ></span>
-                  </div>
-                </fieldset>
-                <fieldset class="popup__set">
-                  <button
-                    type="submit"
-                    class="button button_submit button_submit-disabled"
-                  >
-                    Save
-                  </button>
-                </fieldset>
-              </form>
+        <PopupWithForm
+          title="Change Profile"
+          name="avatar"
+          isOpened={isAvatarPopupOpen}
+          onClose={handleClose}
+        >
+          <fieldset class="popup__set">
+            <div class="popup__container-input">
+              <input
+                type="url"
+                name="url-avatar"
+                id="input-image-avatar"
+                class="popup__input popup__input-image"
+                placeholder="Image URL"
+                minlength="6"
+                required
+                autocomplete="on"
+              />
+              <span class="popup__error" id="input__error-url-avatar"></span>
             </div>
-          </div>
-        </div>
+          </fieldset>
+        </PopupWithForm>
       )}
       {/* Popup Confirmation */}
       <div class="popup popup_confirmation">
