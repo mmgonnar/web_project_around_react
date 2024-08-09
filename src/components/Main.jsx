@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Profile from "./Profile";
+import PopupWithForm from "./PopupWithForm";
+/* import Profile from "./Profile"; */
 
 const Main = (props) => {
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
@@ -14,11 +15,19 @@ const Main = (props) => {
       element.classList.add("popup_show");
     }
   };
+
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const handleAddPlaceClick = () => {
-    const element = document.querySelector(".popup_add");
-    if (element) {
-      element.classList.add("popup_show");
-    }
+    setAddPlacePopupOpen(true);
+  };
+
+  const handlers = {
+    add: setAddPlacePopupOpen,
+  };
+
+  const handleClose = (popupId) => {
+    const setClose = handlers[popupId];
+    setClose(false);
   };
   return (
     <>
@@ -104,58 +113,44 @@ const Main = (props) => {
         </div>
       </div>
       {/* Popup Add */}
-      <div class="popup popup_add">
-        <div class="popup__overlay"></div>
-        <div class="popup__content">
-          <div class="popup__container">
-            <button class="button button_close"></button>
-            <span class="popup__title">New Place</span>
-            <form
-              class="popup__form popup__form_add"
-              id="form-add-place"
-              novalidate
-            >
-              <fieldset class="popup__set">
-                <div class="popup__container-input">
-                  <input
-                    type="text"
-                    name="title"
-                    id="input-title"
-                    class="popup__input popup__input-title"
-                    placeholder="Title"
-                    minlength="2"
-                    maxlength="30"
-                    required
-                    autocomplete="on"
-                  />
-                  <span class="popup__error" id="input__error-title"></span>
-                </div>
-                <div class="popup__container-input">
-                  <input
-                    type="url"
-                    name="url"
-                    id="input-image-add"
-                    class="popup__input popup__input-image"
-                    placeholder="Image URL"
-                    minlength="6"
-                    required
-                    autocomplete="on"
-                  />
-                  <span class="popup__error" id="input__error-url"></span>
-                </div>
-              </fieldset>
-              <fieldset class="popup__set">
-                <button
-                  type="submit"
-                  class="button button_submit button_submit-disabled"
-                >
-                  Save
-                </button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
+      {isAddPlacePopupOpen && (
+        <PopupWithForm
+          title="New Place"
+          name="add"
+          isOpened={isAddPlacePopupOpen}
+          onClose={handleClose}
+        >
+          <fieldset class="popup__set">
+            <div class="popup__container-input">
+              <input
+                type="text"
+                name="title"
+                id="input-title"
+                class="popup__input popup__input-title"
+                placeholder="Title"
+                minlength="2"
+                maxlength="30"
+                required
+                autocomplete="on"
+              />
+              <span class="popup__error" id="input__error-title"></span>
+            </div>
+            <div class="popup__container-input">
+              <input
+                type="url"
+                name="url"
+                id="input-image-add"
+                class="popup__input popup__input-image"
+                placeholder="Image URL"
+                minlength="6"
+                required
+                autocomplete="on"
+              />
+              <span class="popup__error" id="input__error-url"></span>
+            </div>
+          </fieldset>
+        </PopupWithForm>
+      )}
       {/* Popup Image */}
       <div class="popup popup_image">
         <div class="popup__overlay"></div>
