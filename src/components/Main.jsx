@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import Profile from "./Profile";
 
-const Main = () => {
+const Main = (props) => {
+  const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
+
+  const handleEditAvatarClick = () => {
+    setAvatarPopupOpen(true);
+  };
+
+  const handleEditProfileClick = () => {
+    const element = document.querySelector(".popup_edit");
+    if (element) {
+      element.classList.add("popup_show");
+    }
+  };
   return (
     <>
-      <Profile />
+      {/* <Profile /> */}
+      <section class="profile">
+        <div class="profile__container">
+          <img
+            src="/images/profile.png"
+            alt="profile avatar"
+            class="profile__avatar"
+          />
+          <button
+            onClick={handleEditAvatarClick}
+            class="button button_edit-avatar"
+          ></button>
+          <div class="profile__overlay"></div>
+        </div>
+        <div class="profile__info">
+          <div class="profile__info-container">
+            <p class="profile__name">Jacques Cousteau</p>
+            <button
+              onClick={handleEditProfileClick}
+              class="button button_edit"
+            ></button>
+          </div>
+          <p class="profile__job">Explorer</p>
+        </div>
+        <button class="button button_add"></button>
+      </section>
       {/* Popup Edit */}
       <section class="cards"></section>
       <div class="popup popup_edit">
@@ -120,47 +157,49 @@ const Main = () => {
         </div>
       </div>
       {/* Popup Avatar */}
-      <div class="popup popup_avatar">
-        <div class="popup__overlay"></div>
-        <div class="popup__content popup__content-avatar">
-          <div class="popup__container">
-            <button class="button button_close"></button>
-            <span class="popup__title">Change profile</span>
-            <form
-              class="popup__form popup__form_avatar"
-              id="form-avatar"
-              novalidate
-            >
-              <fieldset class="popup__set">
-                <div class="popup__container-input">
-                  <input
-                    type="url"
-                    name="url-avatar"
-                    id="input-image-avatar"
-                    class="popup__input popup__input-image"
-                    placeholder="Image URL"
-                    minlength="6"
-                    required
-                    autocomplete="on"
-                  />
-                  <span
-                    class="popup__error"
-                    id="input__error-url-avatar"
-                  ></span>
-                </div>
-              </fieldset>
-              <fieldset class="popup__set">
-                <button
-                  type="submit"
-                  class="button button_submit button_submit-disabled"
-                >
-                  Save
-                </button>
-              </fieldset>
-            </form>
+      {isAvatarPopupOpen && (
+        <div class="popup popup_avatar popup_show">
+          <div class="popup__overlay"></div>
+          <div class="popup__content popup__content-avatar">
+            <div class="popup__container">
+              <button class="button button_close"></button>
+              <span class="popup__title">Change profile</span>
+              <form
+                class="popup__form popup__form_avatar"
+                id="form-avatar"
+                novalidate
+              >
+                <fieldset class="popup__set">
+                  <div class="popup__container-input">
+                    <input
+                      type="url"
+                      name="url-avatar"
+                      id="input-image-avatar"
+                      class="popup__input popup__input-image"
+                      placeholder="Image URL"
+                      minlength="6"
+                      required
+                      autocomplete="on"
+                    />
+                    <span
+                      class="popup__error"
+                      id="input__error-url-avatar"
+                    ></span>
+                  </div>
+                </fieldset>
+                <fieldset class="popup__set">
+                  <button
+                    type="submit"
+                    class="button button_submit button_submit-disabled"
+                  >
+                    Save
+                  </button>
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       {/* Popup Confirmation */}
       <div class="popup popup_confirmation">
         <div class="popup__overlay"></div>
@@ -186,7 +225,7 @@ const Main = () => {
         </div>
       </div>
       {/* Template */}
-      <template class="cards" id="cards-template">
+      {/* <template class="cards" id="cards-template">
         <div class="card">
           <img class="card__image" alt="" />
           <div class="card__info">
@@ -200,7 +239,7 @@ const Main = () => {
             <button class="button button_delete"></button>
           </div>
         </div>
-      </template>
+      </template> */}
     </>
   );
 };

@@ -1,16 +1,6 @@
 import { useState } from "react";
 
-const Profile = () => {
-  const [show, setShow] = useState(false);
-
-  const handleEditAvatarClick = () => {
-    const editAvatarClick = document.querySelector(".profile__avatar");
-    if (editAvatarClick) {
-      editAvatarClick.classList.add("popup-opened");
-      setShow(true);
-    }
-  };
-
+const Profile = (props) => {
   const handleEditProfileClick = () => {};
   const handleAddPlaceClick = () => {};
 
@@ -22,7 +12,10 @@ const Profile = () => {
           alt="profile avatar"
           class="profile__avatar"
         />
-        <button class="button button_edit-avatar"></button>
+        <button
+          onClick={props.handleEditAvatarClick}
+          class="button button_edit-avatar"
+        ></button>
         <div class="profile__overlay"></div>
       </div>
       <div class="profile__info">
