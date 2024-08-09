@@ -14,6 +14,12 @@ const Main = (props) => {
       element.classList.add("popup_show");
     }
   };
+  const handleAddPlaceClick = () => {
+    const element = document.querySelector(".popup_add");
+    if (element) {
+      element.classList.add("popup_show");
+    }
+  };
   return (
     <>
       {/* <Profile /> */}
@@ -40,7 +46,10 @@ const Main = (props) => {
           </div>
           <p class="profile__job">Explorer</p>
         </div>
-        <button class="button button_add"></button>
+        <button
+          onClick={handleAddPlaceClick}
+          class="button button_add"
+        ></button>
       </section>
       {/* Popup Edit */}
       <section class="cards"></section>
