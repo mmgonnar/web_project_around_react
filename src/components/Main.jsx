@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 /* import Profile from "./Profile"; */
 
+const handleClosePopup = () => {
+  const element = document.querySelector(".popup_edit");
+  if (element) {
+    element.classList.remove("popup_show");
+  }
+};
+
 const Main = (props) => {
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
 
@@ -24,6 +31,7 @@ const Main = (props) => {
   const handlers = {
     add: setAddPlacePopupOpen,
     avatar: setAvatarPopupOpen,
+    edit: handleClosePopup,
   };
 
   const handleClose = (popupId) => {
@@ -62,7 +70,45 @@ const Main = (props) => {
         ></button>
       </section>
       {/* Popup Edit */}
-      <section class="cards"></section>
+      <PopupWithForm
+        title="Edit Profile"
+        name="edit"
+        isOpened={""}
+        onClose={handleClose}
+      >
+        <fieldset class="popup__set">
+          <div class="popup__container-input">
+            <input
+              type="text"
+              name="name"
+              id="input-name"
+              class="popup__input popup__input-name"
+              placeholder="Name"
+              minlength="2"
+              maxlength="40"
+              required
+              autocomplete="on"
+            />
+            <span class="popup__error" id="input__error-name"></span>
+          </div>
+          <div class="popup__container-input">
+            <input
+              type="text"
+              name="job"
+              º
+              id="input-job"
+              class="popup__input popup__input-job"
+              placeholder="Job"
+              minlength="2"
+              maxlength="200"
+              required
+              autocomplete="on"
+            />
+            <span class="popup__error" id="input__error-job"></span>
+          </div>
+        </fieldset>
+      </PopupWithForm>
+      {/* <section class="cards"></section>
       <div class="popup popup_edit">
         <div class="popup__overlay"></div>
         <div class="popup__content">
@@ -70,37 +116,6 @@ const Main = (props) => {
             <button class="button button_close"></button>
             <span class="popup__title">Edit profile</span>
             <form class="popup__form" id="form-edit-profile" novalidate>
-              <fieldset class="popup__set">
-                <div class="popup__container-input">
-                  <input
-                    type="text"
-                    name="name"
-                    id="input-name"
-                    class="popup__input popup__input-name"
-                    placeholder="Name"
-                    minlength="2"
-                    maxlength="40"
-                    required
-                    autocomplete="on"
-                  />
-                  <span class="popup__error" id="input__error-name"></span>
-                </div>
-                <div class="popup__container-input">
-                  <input
-                    type="text"
-                    name="job"
-                    º
-                    id="input-job"
-                    class="popup__input popup__input-job"
-                    placeholder="Job"
-                    minlength="2"
-                    maxlength="200"
-                    required
-                    autocomplete="on"
-                  />
-                  <span class="popup__error" id="input__error-job"></span>
-                </div>
-              </fieldset>
               <fieldset class="popup__set">
                 <button
                   type="submit"
@@ -112,7 +127,7 @@ const Main = (props) => {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Popup Add */}
       {isAddPlacePopupOpen && (
         <PopupWithForm
