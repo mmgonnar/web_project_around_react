@@ -2,8 +2,12 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header class="header">
-      <img src="/logo_aus.svg" alt="Logo Around the US" class="header__logo" />
+    <header className="header">
+      <img
+        src="/logo_aus.svg"
+        alt="Logo Around the US"
+        className="header__logo"
+      />
     </header>
   );
 };

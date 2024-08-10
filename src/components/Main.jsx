@@ -41,32 +41,32 @@ const Main = (props) => {
   return (
     <>
       {/* <Profile /> */}
-      <section class="profile">
-        <div class="profile__container">
+      <section className="profile">
+        <div className="profile__container">
           <img
             src="/images/profile.png"
             alt="profile avatar"
-            class="profile__avatar"
+            className="profile__avatar"
           />
           <button
             onClick={handleEditAvatarClick}
-            class="button button_edit-avatar"
+            className="button button_edit-avatar"
           ></button>
-          <div class="profile__overlay"></div>
+          <div className="profile__overlay"></div>
         </div>
-        <div class="profile__info">
-          <div class="profile__info-container">
-            <p class="profile__name">Jacques Cousteau</p>
+        <div className="profile__info">
+          <div className="profile__info-container">
+            <p className="profile__name">Jacques Cousteau</p>
             <button
               onClick={handleEditProfileClick}
-              class="button button_edit"
+              className="button button_edit"
             ></button>
           </div>
-          <p class="profile__job">Explorer</p>
+          <p className="profile__job">Explorer</p>
         </div>
         <button
           onClick={handleAddPlaceClick}
-          class="button button_add"
+          className="button button_add"
         ></button>
       </section>
       {/* Popup Edit */}
@@ -76,58 +76,38 @@ const Main = (props) => {
         isOpened={""}
         onClose={handleClose}
       >
-        <fieldset class="popup__set">
-          <div class="popup__container-input">
+        <fieldset className="popup__set">
+          <div className="popup__container-input">
             <input
               type="text"
               name="name"
               id="input-name"
-              class="popup__input popup__input-name"
+              className="popup__input popup__input-name"
               placeholder="Name"
               minlength="2"
               maxlength="40"
               required
               autocomplete="on"
             />
-            <span class="popup__error" id="input__error-name"></span>
+            <span className="popup__error" id="input__error-name"></span>
           </div>
-          <div class="popup__container-input">
+          <div className="popup__container-input">
             <input
               type="text"
               name="job"
               º
               id="input-job"
-              class="popup__input popup__input-job"
+              className="popup__input popup__input-job"
               placeholder="Job"
               minlength="2"
               maxlength="200"
               required
               autocomplete="on"
             />
-            <span class="popup__error" id="input__error-job"></span>
+            <span className="popup__error" id="input__error-job"></span>
           </div>
         </fieldset>
       </PopupWithForm>
-      {/* <section class="cards"></section>
-      <div class="popup popup_edit">
-        <div class="popup__overlay"></div>
-        <div class="popup__content">
-          <div class="popup__container">
-            <button class="button button_close"></button>
-            <span class="popup__title">Edit profile</span>
-            <form class="popup__form" id="form-edit-profile" novalidate>
-              <fieldset class="popup__set">
-                <button
-                  type="submit"
-                  class="button button_submit button_submit-disabled"
-                >
-                  Save
-                </button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div> */}
       {/* Popup Add */}
       {isAddPlacePopupOpen && (
         <PopupWithForm
@@ -136,44 +116,44 @@ const Main = (props) => {
           isOpened={isAddPlacePopupOpen}
           onClose={handleClose}
         >
-          <fieldset class="popup__set">
-            <div class="popup__container-input">
+          <fieldset className="popup__set">
+            <div className="popup__container-input">
               <input
                 type="text"
                 name="title"
                 id="input-title"
-                class="popup__input popup__input-title"
+                className="popup__input popup__input-title"
                 placeholder="Title"
                 minlength="2"
                 maxlength="30"
                 required
                 autocomplete="on"
               />
-              <span class="popup__error" id="input__error-title"></span>
+              <span className="popup__error" id="input__error-title"></span>
             </div>
-            <div class="popup__container-input">
+            <div className="popup__container-input">
               <input
                 type="url"
                 name="url"
                 id="input-image-add"
-                class="popup__input popup__input-image"
+                className="popup__input popup__input-image"
                 placeholder="Image URL"
                 minlength="6"
                 required
                 autocomplete="on"
               />
-              <span class="popup__error" id="input__error-url"></span>
+              <span className="popup__error" id="input__error-url"></span>
             </div>
           </fieldset>
         </PopupWithForm>
       )}
       {/* Popup Image */}
-      <div class="popup popup_image">
-        <div class="popup__overlay"></div>
-        <div class="popup__content popup__content-image">
-          <button class="button button_close"></button>
-          <img src="" alt="" class="popup__element" />
-          <span class="popup__title popup__title_img"></span>
+      <div className="popup popup_image">
+        <div className="popup__overlay"></div>
+        <div className="popup__content popup__content-image">
+          <button className="button button_close"></button>
+          <img src="" alt="" className="popup__element" />
+          <span className="popup__title popup__title_img"></span>
         </div>
       </div>
       {/* Popup Avatar */}
@@ -202,21 +182,21 @@ const Main = (props) => {
         </PopupWithForm>
       )}
       {/* Popup Confirmation */}
-      <div class="popup popup_confirmation">
-        <div class="popup__overlay"></div>
-        <div class="popup__content popup__content-confirmation">
-          <div class="popup__container">
-            <button class="button button_close"></button>
-            <span class="popup__title">Are you sure?</span>
+      <div className="popup popup_confirmation">
+        <div className="popup__overlay"></div>
+        <div className="popup__content popup__content-confirmation">
+          <div className="popup__container">
+            <button className="button button_close"></button>
+            <span className="popup__title">Are you sure?</span>
             <form
-              class="popup__form popup__form_add"
+              className="popup__form popup__form_add"
               id="form-add-place-confitmation"
               novalidate
             >
-              <fieldset class="popup__set">
+              <fieldset className="popup__set">
                 <button
                   type="submit"
-                  class="button button_submit button_submit-disabled"
+                  className="button button_submit button_submit-disabled"
                 >
                   Yes
                 </button>
@@ -226,18 +206,18 @@ const Main = (props) => {
         </div>
       </div>
       {/* Template */}
-      {/* <template class="cards" id="cards-template">
-        <div class="card">
-          <img class="card__image" alt="" />
-          <div class="card__info">
-            <p class="card__title">
-              <strong class="card__title-strong"></strong>
+      {/* <template className="cards" id="cards-template">
+        <div className="card">
+          <img className="card__image" alt="" />
+          <div className="card__info">
+            <p className="card__title">
+              <strong className="card__title-strong"></strong>
             </p>
-            <div class="card__likes">
-              <button class="button button_like"></button>
-              <p class="card__counter"></p>
+            <div className="card__likes">
+              <button className="button button_like"></button>
+              <p className="card__counter"></p>
             </div>
-            <button class="button button_delete"></button>
+            <button className="button button_delete"></button>
           </div>
         </div>
       </template> */}
