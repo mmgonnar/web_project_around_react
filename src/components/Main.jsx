@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
+import api from "../utils/Api";
 /* import Profile from "./Profile"; */
 
 const Main = (props) => {
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userData = await api.getUserData();
+        setUserName(userData.name);
+        setUserDescription(userData.description);
+        setUserAvatar(userData.avatar);
+      } catch (error) {
+        console.error("Error fetching user data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       {/* <Profile
