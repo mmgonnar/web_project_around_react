@@ -41,10 +41,12 @@ function App() {
     <>
       <Header />
       <Main
+        isAvatarPopupOpen={isAvatarPopupOpen}
+        isAddPlacePopupOpen={isAddPlacePopupOpen}
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
-        conEditAvatarClick={handleEditAvatarClick}
-        /* onCardClick={handleCardClick} */
+        onEditAvatarClick={handleEditAvatarClick}
+        onClose={handleClose}
       />
       <Footer />
     </>

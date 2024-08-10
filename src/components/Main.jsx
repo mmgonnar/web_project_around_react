@@ -1,44 +1,13 @@
-import React, { useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 /* import Profile from "./Profile"; */
 
 const Main = (props) => {
-  const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
-  const handleEditAvatarClick = () => {
-    setAvatarPopupOpen(true);
-  };
-
-  const handleEditProfileClick = () => {
-    const element = document.querySelector(".popup_edit");
-    if (element) {
-      element.classList.add("popup_show");
-    }
-  };
-  const handleClosePopup = () => {
-    const element = document.querySelector(".popup_edit");
-    if (element) {
-      element.classList.remove("popup_show");
-    }
-  };
-
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
-  const handleAddPlaceClick = () => {
-    setAddPlacePopupOpen(true);
-  };
-
-  const handlers = {
-    add: setAddPlacePopupOpen,
-    avatar: setAvatarPopupOpen,
-    edit: handleClosePopup,
-  };
-
-  const handleClose = (popupId) => {
-    const setClose = handlers[popupId];
-    setClose(false);
-  };
   return (
     <>
-      {/* <Profile /> */}
+      {/* <Profile
+        isAvatarPopupOpen={isAvatarPopupOpen}
+        isAddPlacePopupOpen={isAddPlacePopupOpen}
+      /> */}
       <section className="profile">
         <div className="profile__container">
           <img
@@ -47,7 +16,7 @@ const Main = (props) => {
             className="profile__avatar"
           />
           <button
-            onClick={handleEditAvatarClick}
+            onClick={props.onEditAvatarClick}
             className="button button_edit-avatar"
           ></button>
           <div className="profile__overlay"></div>
@@ -56,14 +25,14 @@ const Main = (props) => {
           <div className="profile__info-container">
             <p className="profile__name">Jacques Cousteau</p>
             <button
-              onClick={handleEditProfileClick}
+              onClick={props.onEditProfileClick}
               className="button button_edit"
             ></button>
           </div>
           <p className="profile__job">Explorer</p>
         </div>
         <button
-          onClick={handleAddPlaceClick}
+          onClick={props.onAddPlaceClick}
           className="button button_add"
         ></button>
       </section>
@@ -72,7 +41,7 @@ const Main = (props) => {
         title="Edit Profile"
         name="edit"
         isOpened={""}
-        onClose={handleClose}
+        onClose={props.onClose}
       >
         <fieldset className="popup__set">
           <div className="popup__container-input">
@@ -106,12 +75,12 @@ const Main = (props) => {
         </fieldset>
       </PopupWithForm>
       {/* Popup Add */}
-      {isAddPlacePopupOpen && (
+      {props.isAddPlacePopupOpen && (
         <PopupWithForm
           title="New Place"
           name="add"
-          isOpened={isAddPlacePopupOpen}
-          onClose={handleClose}
+          isOpened={props.isAddPlacePopupOpen}
+          onClose={props.onClose}
         >
           <fieldset className="popup__set">
             <div className="popup__container-input">
@@ -154,12 +123,12 @@ const Main = (props) => {
         </div>
       </div>
       {/* Popup Avatar */}
-      {isAvatarPopupOpen && (
+      {props.isAvatarPopupOpen && (
         <PopupWithForm
           title="Change Profile"
           name="avatar"
-          isOpened={isAvatarPopupOpen}
-          onClose={handleClose}
+          isOpened={props.isAvatarPopupOpen}
+          onClose={props.onClose}
         >
           <fieldset className="popup__set">
             <div className="popup__container-input">
