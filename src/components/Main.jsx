@@ -2,16 +2,8 @@ import React, { useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 /* import Profile from "./Profile"; */
 
-const handleClosePopup = () => {
-  const element = document.querySelector(".popup_edit");
-  if (element) {
-    element.classList.remove("popup_show");
-  }
-};
-
 const Main = (props) => {
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
-
   const handleEditAvatarClick = () => {
     setAvatarPopupOpen(true);
   };
@@ -20,6 +12,12 @@ const Main = (props) => {
     const element = document.querySelector(".popup_edit");
     if (element) {
       element.classList.add("popup_show");
+    }
+  };
+  const handleClosePopup = () => {
+    const element = document.querySelector(".popup_edit");
+    if (element) {
+      element.classList.remove("popup_show");
     }
   };
 
