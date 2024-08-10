@@ -1,3 +1,4 @@
+import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 /* import Profile from "./Profile"; */
 
@@ -37,43 +38,45 @@ const Main = (props) => {
         ></button>
       </section>
       {/* Popup Edit */}
-      <PopupWithForm
-        title="Edit Profile"
-        name="edit"
-        isOpened={""}
-        onClose={props.onClose}
-      >
-        <fieldset className="popup__set">
-          <div className="popup__container-input">
-            <input
-              type="text"
-              name="name"
-              id="input-name"
-              className="popup__input popup__input-name"
-              placeholder="Name"
-              minLength="2"
-              maxLength="40"
-              required
-              autoComplete="on"
-            />
-            <span className="popup__error" id="input__error-name"></span>
-          </div>
-          <div className="popup__container-input">
-            <input
-              type="text"
-              name="job"
-              id="input-job"
-              className="popup__input popup__input-job"
-              placeholder="Job"
-              minLength="2"
-              maxLength="200"
-              required
-              autoComplete="on"
-            />
-            <span className="popup__error" id="input__error-job"></span>
-          </div>
-        </fieldset>
-      </PopupWithForm>
+      {props.isEditProfilePopupOpen && (
+        <PopupWithForm
+          title="Edit Profile"
+          name="edit"
+          isOpened={props.isEditProfilePopupOpen}
+          onClose={props.onClose}
+        >
+          <fieldset className="popup__set">
+            <div className="popup__container-input">
+              <input
+                type="text"
+                name="name"
+                id="input-name"
+                className="popup__input popup__input-name"
+                placeholder="Name"
+                minLength="2"
+                maxLength="40"
+                required
+                autoComplete="on"
+              />
+              <span className="popup__error" id="input__error-name"></span>
+            </div>
+            <div className="popup__container-input">
+              <input
+                type="text"
+                name="job"
+                id="input-job"
+                className="popup__input popup__input-job"
+                placeholder="Job"
+                minLength="2"
+                maxLength="200"
+                required
+                autoComplete="on"
+              />
+              <span className="popup__error" id="input__error-job"></span>
+            </div>
+          </fieldset>
+        </PopupWithForm>
+      )}
       {/* Popup Add */}
       {props.isAddPlacePopupOpen && (
         <PopupWithForm
@@ -114,14 +117,7 @@ const Main = (props) => {
         </PopupWithForm>
       )}
       {/* Popup Image */}
-      <div className="popup popup_image">
-        <div className="popup__overlay"></div>
-        <div className="popup__content popup__content-image">
-          <button className="button button_close"></button>
-          <img src="" alt="" className="popup__element" />
-          <span className="popup__title popup__title_img"></span>
-        </div>
-      </div>
+      {props.isCardPopupOpen && <ImagePopup />}
       {/* Popup Avatar */}
       {props.isAvatarPopupOpen && (
         <PopupWithForm

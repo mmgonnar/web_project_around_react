@@ -4,33 +4,31 @@ import Header from "./Header";
 import Main from "./Main";
 
 function App() {
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
+  const [isCardPopupOpen, setCardPopupOpen] = useState(false);
+
   const handleEditAvatarClick = () => {
     setAvatarPopupOpen(true);
   };
 
   const handleEditProfileClick = () => {
-    const element = document.querySelector(".popup_edit");
-    if (element) {
-      element.classList.add("popup_show");
-    }
-  };
-  const handleClosePopup = () => {
-    const element = document.querySelector(".popup_edit");
-    if (element) {
-      element.classList.remove("popup_show");
-    }
+    setEditProfilePopupOpen(true);
   };
 
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const handleAddPlaceClick = () => {
     setAddPlacePopupOpen(true);
+  };
+
+  const handleCardClick = () => {
+    setCardPopupOpen(true);
   };
 
   const handlers = {
     add: setAddPlacePopupOpen,
     avatar: setAvatarPopupOpen,
-    edit: handleClosePopup,
+    edit: setEditProfilePopupOpen,
   };
 
   const handleClose = (popupId) => {
@@ -41,11 +39,14 @@ function App() {
     <>
       <Header />
       <Main
-        isAvatarPopupOpen={isAvatarPopupOpen}
+        isEditProfilePopupOpen={isEditProfilePopupOpen}
         isAddPlacePopupOpen={isAddPlacePopupOpen}
+        isAvatarPopupOpen={isAvatarPopupOpen}
+        isCardPopupOpen={isCardPopupOpen}
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
         onEditAvatarClick={handleEditAvatarClick}
+        onCardClick={handleCardClick}
         onClose={handleClose}
       />
       <Footer />
