@@ -84,10 +84,10 @@ const Main = (props) => {
               id="input-name"
               className="popup__input popup__input-name"
               placeholder="Name"
-              minlength="2"
-              maxlength="40"
+              minLength="2"
+              maxLength="40"
               required
-              autocomplete="on"
+              autoComplete="on"
             />
             <span className="popup__error" id="input__error-name"></span>
           </div>
@@ -95,14 +95,13 @@ const Main = (props) => {
             <input
               type="text"
               name="job"
-              º
               id="input-job"
               className="popup__input popup__input-job"
               placeholder="Job"
-              minlength="2"
-              maxlength="200"
+              minLength="2"
+              maxLength="200"
               required
-              autocomplete="on"
+              autoComplete="on"
             />
             <span className="popup__error" id="input__error-job"></span>
           </div>
@@ -124,10 +123,10 @@ const Main = (props) => {
                 id="input-title"
                 className="popup__input popup__input-title"
                 placeholder="Title"
-                minlength="2"
-                maxlength="30"
+                minLength="2"
+                maxLength="30"
                 required
-                autocomplete="on"
+                autoComplete="on"
               />
               <span className="popup__error" id="input__error-title"></span>
             </div>
@@ -138,9 +137,9 @@ const Main = (props) => {
                 id="input-image-add"
                 className="popup__input popup__input-image"
                 placeholder="Image URL"
-                minlength="6"
+                minLength="6"
                 required
-                autocomplete="on"
+                autoComplete="on"
               />
               <span className="popup__error" id="input__error-url"></span>
             </div>
@@ -164,19 +163,22 @@ const Main = (props) => {
           isOpened={isAvatarPopupOpen}
           onClose={handleClose}
         >
-          <fieldset class="popup__set">
-            <div class="popup__container-input">
+          <fieldset className="popup__set">
+            <div className="popup__container-input">
               <input
                 type="url"
                 name="url-avatar"
                 id="input-image-avatar"
-                class="popup__input popup__input-image"
+                className="popup__input popup__input-image"
                 placeholder="Image URL"
-                minlength="6"
+                minLength="6"
                 required
-                autocomplete="on"
+                autoComplete="on"
               />
-              <span class="popup__error" id="input__error-url-avatar"></span>
+              <span
+                className="popup__error"
+                id="input__error-url-avatar"
+              ></span>
             </div>
           </fieldset>
         </PopupWithForm>
@@ -190,8 +192,8 @@ const Main = (props) => {
             <span className="popup__title">Are you sure?</span>
             <form
               className="popup__form popup__form_add"
-              id="form-add-place-confitmation"
-              novalidate
+              id="form-add-place-confirmation"
+              noValidate
             >
               <fieldset className="popup__set">
                 <button
