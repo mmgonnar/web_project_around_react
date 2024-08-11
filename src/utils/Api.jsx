@@ -1,6 +1,6 @@
 class Api {
-  constructor(url, token) {
-    this._url = url;
+  constructor({ address, token }) {
+    this._url = address;
     this._token = token;
   }
 
@@ -10,7 +10,9 @@ class Api {
         Authorization: this._token,
         "Content-Type": "application/json",
       },
-    }).then((response) => response.json());
+    }).then((response) => {
+      return response.json();
+    });
   }
 
   getCards() {

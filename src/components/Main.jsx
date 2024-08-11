@@ -8,14 +8,18 @@ const Main = (props) => {
   const [userName, setUserName] = useState("");
   const [userDescription, setUserDescription] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
+  /* const [cards, setCards] = useState(""); */
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await api.getUserData();
+        const userData = await api.getUserInfo();
         setUserName(userData.name);
-        setUserDescription(userData.description);
+        setUserDescription(userData.about);
         setUserAvatar(userData.avatar);
+
+        /* const cardsData = await.api.getCards();
+        setCards(cardsData); */
       } catch (error) {
         console.error("Error fetching user data: ", error);
       }
@@ -33,7 +37,7 @@ const Main = (props) => {
       <section className="profile">
         <div className="profile__container">
           <img
-            src="/images/profile.png"
+            src={userAvatar}
             alt="profile avatar"
             className="profile__avatar"
           />
@@ -45,13 +49,15 @@ const Main = (props) => {
         </div>
         <div className="profile__info">
           <div className="profile__info-container">
-            <p className="profile__name">Jacques Cousteau</p>
+            {/* <p className="profile__name">Jacques Cousteau</p> */}
+            <p className="profile__name">{userName}</p>
             <button
               onClick={props.onEditProfileClick}
               className="button button_edit"
             ></button>
           </div>
-          <p className="profile__job">Explorer</p>
+          {/* <p className="profile__job">Explorer</p> */}
+          <p className="profile__job">{userDescription}</p>
         </div>
         <button
           onClick={props.onAddPlaceClick}
