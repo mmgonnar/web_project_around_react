@@ -22,7 +22,11 @@ class Api {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        response.json();
+        console.log(response);
+      })
+
       .catch((error) => console.log(error));
   }
 

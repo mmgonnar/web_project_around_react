@@ -8,7 +8,7 @@ const Main = (props) => {
   const [userName, setUserName] = useState("");
   const [userDescription, setUserDescription] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
-  /* const [cards, setCards] = useState(""); */
+  const [cards, setCards] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,8 +18,8 @@ const Main = (props) => {
         setUserDescription(userData.about);
         setUserAvatar(userData.avatar);
 
-        /* const cardsData = await.api.getCards();
-        setCards(cardsData); */
+        const cardsData = await api.getCards();
+        setCards(cardsData);
       } catch (error) {
         console.error("Error fetching user data: ", error);
       }
@@ -198,7 +198,7 @@ const Main = (props) => {
         </div>
       </div>
       {/* Template */}
-      {/* <template className="cards" id="cards-template">
+      <template className="cards" id="cards-template">
         <div className="card">
           <img className="card__image" alt="" />
           <div className="card__info">
@@ -212,7 +212,7 @@ const Main = (props) => {
             <button className="button button_delete"></button>
           </div>
         </div>
-      </template> */}
+      </template>
     </>
   );
 };
