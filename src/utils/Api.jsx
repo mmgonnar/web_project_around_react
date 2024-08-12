@@ -23,8 +23,8 @@ class Api {
       },
     })
       .then((response) => {
-        response.json();
         console.log(response);
+        response.json();
       })
 
       .catch((error) => console.log(error));
