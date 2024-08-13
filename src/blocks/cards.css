@@ -19,6 +19,7 @@
   height: 361px;
   overflow: hidden;
   position: relative;
+  z-index: -1;
 }
 
 .card__image {
