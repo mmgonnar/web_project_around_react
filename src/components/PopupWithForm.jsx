@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const PopupWithForm = (props) => {
   const popupRef = useRef(null);
-  const handleClose = (evt) => {
+  const handleClose = () => {
     const popupId = popupRef.current.id;
     props.onClose(popupId);
   };
@@ -21,41 +21,39 @@ const PopupWithForm = (props) => {
     };
   }, []);
   return (
-    <>
-      <div
-        ref={popupRef}
-        id={props.name}
-        className={`popup popup_${props.name} ${
-          props.isOpened ? "popup_show" : ""
-        }`}
-      >
-        <div onClick={handleClose} className="popup__overlay"></div>
-        <div className="popup__content">
-          <div className="popup__container">
+    <div
+      ref={popupRef}
+      id={props.name}
+      className={`popup popup_${props.name} ${
+        props.isOpened ? "popup_show" : ""
+      }`}
+    >
+      <div onClick={handleClose} className="popup__overlay"></div>
+      <div className="popup__content">
+        <div className="popup__container">
+          <button
+            onClick={handleClose}
+            className="button button_close"
+          ></button>
+          <span className="popup__title">{props.title}</span>
+          <form
+            className="popup__form"
+            id={`form-${props.name}`}
+            name={props.name}
+            noValidate
+          >
+            {props.children}
             <button
+              type="submit"
+              className="button button_submit button_submit-disabled"
               onClick={handleClose}
-              className="button button_close"
-            ></button>
-            <span className="popup__title">{props.title}</span>
-            <form
-              className="popup__form"
-              id={`form-${props.name}`}
-              name={props.name}
-              noValidate
             >
-              {props.children}
-              <button
-                type="submit"
-                className="button button_submit button_submit-disabled"
-                onClick={handleClose}
-              >
-                Save
-              </button>
-            </form>
-          </div>
+              Save
+            </button>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -143,7 +143,9 @@ const Main = (props) => {
         </PopupWithForm>
       )}
       {/* Popup Image */}
-      {props.isCardPopupOpen && <ImagePopup />}
+      {props.selectedCard && (
+        <ImagePopup card={props.selectedCard} onClose={props.onClose} />
+      )}
       {/* Popup Avatar */}
       {props.isAvatarPopupOpen && (
         <PopupWithForm
@@ -196,7 +198,7 @@ const Main = (props) => {
           </div>
         </div>
       </div>
-      <Cards cards={cards} />
+      <Cards onCardClick={props.onCardClick} cards={cards} />
     </>
   );
 };
