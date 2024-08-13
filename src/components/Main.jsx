@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 import api from "../utils/Api";
+import Cards from "./Cards";
 /* import Profile from "./Profile"; */
 
 const Main = (props) => {
   const [userName, setUserName] = useState("");
   const [userDescription, setUserDescription] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
-  const [cards, setCards] = useState("");
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -197,8 +198,9 @@ const Main = (props) => {
           </div>
         </div>
       </div>
+      <Cards cards={cards} />
       {/* Template */}
-      <template className="cards" id="cards-template">
+      {/* <template className="cards" id="cards-template">
         <div className="card">
           <img className="card__image" alt="" />
           <div className="card__info">
@@ -212,7 +214,7 @@ const Main = (props) => {
             <button className="button button_delete"></button>
           </div>
         </div>
-      </template>
+      </template> */}
     </>
   );
 };
