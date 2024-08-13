@@ -5,7 +5,7 @@ const Cards = ({ cards, onCardClick }) => {
     <div className="cards" id="cards-template">
       {cards.map((card) => {
         return (
-          <div className="card" id={card.id} key={card.id}>
+          <div className="card" id={card._id} key={card._id}>
             <div onClick={() => onCardClick(card)}>
               <img className="card__image" alt={card.name} src={card.link} />
             </div>
