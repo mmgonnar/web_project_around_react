@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Tripleten web_project_around Create with React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This project is part of the [TripleTen](https://tripleten.com/es-mex/) web development bootcamp curriculum. It showcases the skills and techniques learned throughout the course, demonstrating proficiency in front-end development using React.
 
-In the project directory, you can run:
+Around The U.S. is an interactive web application that allows users to explore and share interesting locations across the United States. It serves as a practical application of modern web development concepts and best practices, including responsive design, component-based architecture, and API integration.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- User's profile with an "Edit" button to update the profile information and avatar.
+- A list of attractive cards that can be liked with the "Like" or "Deleted" button.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Techniques Used
 
-### `npm test`
+- **Responsive design:** The web application is designed to be responsive and work well on various screen sizes, from mobile devices to desktop computers.
+- **BEM methodology:** The CSS classes follow the Block Element Modifier (BEM) naming convention for better organization and maintainability of styles.
+- **Flexbox:** Used for creating flexible and responsive layouts throughout the application.
+- **Grid layout:** Implemented for organizing card elements in a responsive grid structure.
+- **Event handling:** JavaScript is used to handle user interactions such as button clicks and form submissions.
+- **State management:** React's useState hook is utilized to manage the application's state, including user information and card data.
+- **Component-based architecture:** The application is built using React components, promoting reusability and modularity.
+- **Popup modals:** Implemented for editing profile information and viewing enlarged images.
+- **Form validation:** Client-side form validation is used to ensure data integrity before submission.
+- **API integration:** The application communicates with a backend API to fetch and update user and card data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+To run this project locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```
+   git clone https://github.com/mmgonnar/web_project_around_react
+   ```
+2. Navigate to the project directory:
+   ```
+   cd around-react
+   ```
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is deployed on GitHub Pages and Vercel. You can view the live version at:
+[GitHub Pages](https://mmgonnar.github.io/web_project_around_react/) or [Vercel](https://web-project-around-react-plum.vercel.app/).
 
-### `npm run eject`
+## Future Improvements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Implement user authentication and authorization
+- Add the ability for users to create and delete their own cards
+- Implement a search functionality to filter cards
+- Improve accessibility features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **React:** A JavaScript library for building user interfaces
+- **CSS3:** For styling and layout
+- **HTML5:** For structuring the content
+- **JavaScript (ES6+):** For implementing interactive features
+- **REST API:** For communication with the backend server
+- **Webpack:** For bundling and managing assets
+- **Babel:** For transpiling modern JavaScript features
+- **Git:** For version control
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contact
 
-## Learn More
+If you have any questions, suggestions, or just want to say hello, feel free to reach out:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Email:** [mmgonnar@gmail.com](mailto:mmgonnar@gmail.com)
+- **LinkedIn:** [/mmgonnar](https://www.linkedin.com/in/mmgonnar/)
+- **Twitter:** [@mmgonnar](https://x.com/mmgonnar)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Your feedback and contributions are greatly appreciated!
