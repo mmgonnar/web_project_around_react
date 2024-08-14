@@ -2,27 +2,27 @@
 
 ## Description
 
-This project is part of the _TripleTen_ web development bootcamp curriculum. It showcases the skills and techniques learned throughout the course, demonstrating proficiency in front-end development using React.
+This project is part of the [TripleTen](https://tripleten.com/es-mex/) web development bootcamp curriculum. It showcases the skills and techniques learned throughout the course, demonstrating proficiency in front-end development using React.
 
 Around The U.S. is an interactive web application that allows users to explore and share interesting locations across the United States. It serves as a practical application of modern web development concepts and best practices, including responsive design, component-based architecture, and API integration.
 
 ## Features
 
-- Jacques Cousteau's profile with an "Edit" button to update the profile information.
-- A list of attractive cards that can be liked with the "Like" button.
+- User's profile with an "Edit" button to update the profile information and avatar.
+- A list of attractive cards that can be liked with the "Like" or "Deleted" button.
 
 ## Techniques Used
 
-- Responsive design: The web application is designed to be responsive and work well on various screen sizes, from mobile devices to desktop computers.
-- BEM methodology: The CSS classes follow the Block Element Modifier (BEM) naming convention for better organization and maintainability of styles.
-- Flexbox: Used for creating flexible and responsive layouts throughout the application.
-- Grid layout: Implemented for organizing card elements in a responsive grid structure.
-- Event handling: JavaScript is used to handle user interactions such as button clicks and form submissions.
-- State management: React's useState hook is utilized to manage the application's state, including user information and card data.
-- Component-based architecture: The application is built using React components, promoting reusability and modularity.
-- Popup modals: Implemented for editing profile information and viewing enlarged images.
-- Form validation: Client-side form validation is used to ensure data integrity before submission.
-- API integration: The application communicates with a backend API to fetch and update user and card data.
+- **Responsive design:** The web application is designed to be responsive and work well on various screen sizes, from mobile devices to desktop computers.
+- **BEM methodology:** The CSS classes follow the Block Element Modifier (BEM) naming convention for better organization and maintainability of styles.
+- **Flexbox:** Used for creating flexible and responsive layouts throughout the application.
+- **Grid layout:** Implemented for organizing card elements in a responsive grid structure.
+- **Event handling:** JavaScript is used to handle user interactions such as button clicks and form submissions.
+- **State management:** React's useState hook is utilized to manage the application's state, including user information and card data.
+- **Component-based architecture:** The application is built using React components, promoting reusability and modularity.
+- **Popup modals:** Implemented for editing profile information and viewing enlarged images.
+- **Form validation:** Client-side form validation is used to ensure data integrity before submission.
+- **API integration:** The application communicates with a backend API to fetch and update user and card data.
 
 ## Installation
 
@@ -57,32 +57,23 @@ This project is deployed on GitHub Pages and Vercel. You can view the live versi
 - Implement a search functionality to filter cards
 - Improve accessibility features
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- [Practicum by Yandex](https://practicum.yandex.com/) for providing the project requirements and guidance.
-- [Create React App](https://github.com/facebook/create-react-app) for the initial project setup.
-
 ## Technologies Used
 
-- React: A JavaScript library for building user interfaces
-- CSS3: For styling and layout
-- HTML5: For structuring the content
-- JavaScript (ES6+): For implementing interactive features
-- REST API: For communication with the backend server
-- Webpack: For bundling and managing assets
-- Babel: For transpiling modern JavaScript features
-- Git: For version control
+- **React:** A JavaScript library for building user interfaces
+- **CSS3:** For styling and layout
+- **HTML5:** For structuring the content
+- **JavaScript (ES6+):** For implementing interactive features
+- **REST API:** For communication with the backend server
+- **Webpack:** For bundling and managing assets
+- **Babel:** For transpiling modern JavaScript features
+- **Git:** For version control
 
 ## Contact
 
 If you have any questions, suggestions, or just want to say hello, feel free to reach out:
 
-- Email: [mmgonnar@gmail.com](mailto:mmgonnar@gmail.com)
-- LinkedIn: [/mmgonnar](https://www.linkedin.com/in/mmgonnar/)
-- Twitter: [@mmgonnar](https://x.com/mmgonnar)
+- **Email:** [mmgonnar@gmail.com](mailto:mmgonnar@gmail.com)
+- **LinkedIn:** [/mmgonnar](https://www.linkedin.com/in/mmgonnar/)
+- **Twitter:** [@mmgonnar](https://x.com/mmgonnar)
 
 Your feedback and contributions are greatly appreciated!
