@@ -25,7 +25,6 @@ function App() {
 
   const handleCardClick = (card) => {
     setCardPopupOpen(true);
-    console.log(card);
     setSelectedCard(card);
   };
 

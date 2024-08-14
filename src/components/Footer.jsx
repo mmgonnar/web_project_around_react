@@ -11,7 +11,6 @@ const Footer = () => {
               href="https://github.com/mmgonnar"
               target="_blank"
               className="footer__link"
-              class="footer__link"
             >
               Mariela González
             </a>

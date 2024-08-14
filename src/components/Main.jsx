@@ -29,7 +29,6 @@ const Main = (props) => {
     fetchData();
   }, []);
 
-  console.log(props.selectedCard);
   return (
     <>
       {/* <Profile
