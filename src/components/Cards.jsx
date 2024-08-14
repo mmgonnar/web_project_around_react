@@ -11,7 +11,7 @@ const Cards = ({ cards, onCardClick }) => {
             </div>
             <div className="card__info">
               <p className="card__title">
-                <strong className="card__title-strong">{card.title}</strong>
+                <strong className="card__title-strong">{card.name}</strong>
               </p>
               <div className="card__likes">
                 <button className="button button_like"></button>
