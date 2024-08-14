@@ -77,9 +77,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.popup_image{
-  z-index: 1;
-}
+
 
 .popup-image__element {
   width: 100%;
