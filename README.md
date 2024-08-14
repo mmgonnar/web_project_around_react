@@ -47,8 +47,8 @@ To run this project locally, follow these steps:
 
 ## Deployment
 
-This project is deployed on GitHub Pages and Vercel. You can view the live version at:
-[GitHub Pages](https://mmgonnar.github.io/web_project_around_react/) or [Vercel](https://web-project-around-react-plum.vercel.app/).
+This project is deployed on Vercel. You can view the live version at:
+[Vercel](https://web-project-around-react-itzpbd5xz-mariela-gonzalezs-projects.vercel.app/).
 
 ## Future Improvements
 
