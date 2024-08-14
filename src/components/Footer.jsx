@@ -2,15 +2,15 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer class="footer">
-      <div class="footer__text">
-        <p class="footer__copyright">
-          {" \u00A9"} 2023 Around The U.S. |{" "}
+    <footer className="footer">
+      <div className="footer__text">
+        <p className="footer__copyright">
+          {" \u00A9"} {new Date().getFullYear()} Around The U.S. |{" "}
           <strong>
             <a
               href="https://github.com/mmgonnar"
               target="_blank"
-              class="footer__link"
+              className="footer__link"
             >
               Mariela González
             </a>
