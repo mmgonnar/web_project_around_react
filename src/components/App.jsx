@@ -10,6 +10,7 @@ function App() {
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
   const [isCardPopupOpen, setCardPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  const currentUser = api.getUserInfo();
 
   const handleEditAvatarClick = () => {
     setAvatarPopupOpen(true);
