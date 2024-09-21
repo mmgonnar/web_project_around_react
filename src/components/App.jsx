@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
 import Cards from "./Cards";
+import { CurrentUserContext } from "../contexts/CurretUserContext";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
@@ -43,22 +44,24 @@ function App() {
     setClose(false);
   };
   return (
-    <>
-      <Header />
-      <Main
-        isEditProfilePopupOpen={isEditProfilePopupOpen}
-        isAddPlacePopupOpen={isAddPlacePopupOpen}
-        isAvatarPopupOpen={isAvatarPopupOpen}
-        isCardPopupOpen={isCardPopupOpen}
-        onEditProfileClick={handleEditProfileClick}
-        onAddPlaceClick={handleAddPlaceClick}
-        onEditAvatarClick={handleEditAvatarClick}
-        onCardClick={handleCardClick}
-        onClose={handleClose}
-        selectedCard={selectedCard}
-      />
-      <Footer />
-    </>
+    <CurrentUserContext.Provider>
+      <>
+        <Header />
+        <Main
+          isEditProfilePopupOpen={isEditProfilePopupOpen}
+          isAddPlacePopupOpen={isAddPlacePopupOpen}
+          isAvatarPopupOpen={isAvatarPopupOpen}
+          isCardPopupOpen={isCardPopupOpen}
+          onEditProfileClick={handleEditProfileClick}
+          onAddPlaceClick={handleAddPlaceClick}
+          onEditAvatarClick={handleEditAvatarClick}
+          onCardClick={handleCardClick}
+          onClose={handleClose}
+          selectedCard={selectedCard}
+        />
+        <Footer />
+      </>
+    </CurrentUserContext.Provider>
   );
 }
 
