@@ -31,7 +31,7 @@ const Main = (props) => {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={{}}>
+    <CurrentUserContext.Context value={{}}>
       <>
         {/* <Profile
         isAvatarPopupOpen={isAvatarPopupOpen}
@@ -202,7 +202,7 @@ const Main = (props) => {
         </div>
         <Cards onCardClick={props.onCardClick} cards={cards} />
       </>
-    </CurrentUserContext.Provider>
+    </CurrentUserContext.Context>
   );
 };
 
