@@ -29,10 +29,10 @@ const Main = (props) => {
       let newCard;
       if (isLiked) {
         newCard = await api.deleteLikeCard(card._id);
-        console.log("card unliked");
+        console.log("Like removed");
       } else {
         newCard = await api.likeCard(card._id);
-        console.log("Card liked");
+        console.log("Liked Card");
       }
 
       // const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
@@ -44,8 +44,9 @@ const Main = (props) => {
   };
 
   const handleCardDelete = async (cardId) => {
+    console.log("click on tacho");
     try {
-      await api.deleteCard();
+      await api.deleteCard(cardId);
       console.log("deleted card");
       setCards((state) => state.filter((c) => c._id !== cardId));
       console.log("Card deleted");
