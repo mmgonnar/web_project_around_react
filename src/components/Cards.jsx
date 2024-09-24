@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-const Cards = ({ cards, onCardClick, onCardLike }) => {
+const Cards = ({ cards, onCardClick, onCardLike, onCardDelete }) => {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -38,7 +38,10 @@ const Cards = ({ cards, onCardClick, onCardLike }) => {
                 ></button>
                 <p className="card__counter">{card.likes.length}</p>
               </div>
-              <button className="button button_delete"></button>
+              <button
+                className="button button_delete"
+                onClick={() => onCardDelete(card._id)}
+              ></button>
             </div>
           </div>
         );

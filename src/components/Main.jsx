@@ -43,6 +43,16 @@ const Main = (props) => {
     }
   };
 
+  const handleCardDelete = async (cardId) => {
+    try {
+      await api.deleteCard();
+      setCards((state) => state.filter((c) => c._id !== cardId));
+      console.log("Card deleted:", cardId);
+    } catch (error) {
+      console.log("Error deleting cars:", error);
+    }
+  };
+
   if (!currentUser) {
     return <div>Loading...</div>;
   }
@@ -220,6 +230,7 @@ const Main = (props) => {
         onCardClick={props.onCardClick}
         cards={cards}
         onCardLike={handleCardLike}
+        onCardDelete={handleCardDelete}
       />
     </>
   );
