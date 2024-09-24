@@ -3,7 +3,8 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
 import Cards from "./Cards";
-import { CurrentUserContext } from "../contexts/CurretUserContext";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import api from "../utils/Api";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
@@ -12,6 +13,25 @@ function App() {
   const [isCardPopupOpen, setCardPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const currentUser = api.getUserInfo();
+
+  /* const [currentUser, setCurrentUser] = useState({
+    name: "",
+    about: "",
+    avatar: "",
+  });
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const userData = await api.getUserInfo();
+        setCurrentUser(userData);
+      } catch (error) {
+        console.error("Error fetching user data: ", error);
+      }
+    };
+
+    fetchUserInfo();
+  }, []); */
 
   const handleEditAvatarClick = () => {
     setAvatarPopupOpen(true);
@@ -44,7 +64,7 @@ function App() {
     setClose(false);
   };
   return (
-    <CurrentUserContext.Provider>
+    <CurrentUserContext.Provider value={{}}>
       <>
         <Header />
         <Main
