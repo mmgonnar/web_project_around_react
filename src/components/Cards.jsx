@@ -3,9 +3,17 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 const Cards = ({ cards, onCardClick }) => {
   const currentUser = useContext(CurrentUserContext);
+
   return (
     <div className="cards" id="cards-template">
       {cards.map((card) => {
+        const isOwn = card.owner._id === currentUser._id;
+        const cardDeleteButtonClassName = `card__delete-button ${
+          isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
+        }`;
+        const isLiked = card.likes.some((i) => i._id === currentUser._id);
+        const cardLikeButtonClassName = `...`;
+
         return (
           <div className="card" id={card._id} key={card._id}>
             <div onClick={() => onCardClick(card)}>

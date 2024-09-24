@@ -8,21 +8,11 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 const Main = (props) => {
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
-
-  // const [userName, setUserName] = useState("");
-  // const [userDescription, setUserDescription] = useState("");
-  // const [userAvatar, setUserAvatar] = useState("");
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const userData = await api.getUserInfo();
-        // setUserName(userData.name);
-        // setUserDescription(userData.about);
-        // setUserAvatar(userData.avatar);
-
         const cardsData = await api.getCards();
         setCards(cardsData);
       } catch (error) {
