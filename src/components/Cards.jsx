@@ -8,10 +8,12 @@ const Cards = ({ cards, onCardClick, onCardLike }) => {
     <div className="cards" id="cards-template">
       {cards.map((card) => {
         const isOwn = card.owner._id === currentUser._id;
-        const cardDeleteButtonClassName = `card__delete-button ${
-          isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
+        //console.log(isOwn);
+        const cardDeleteButtonClassName = `button_delete  ${
+          isOwn ? "button_delete _visible" : "button_delete _hidden"
         }`;
-        const isLiked = card.likes.some((i) => i._id === currentUser._id);
+        // const isLiked = card.likes.some((i) => i._id === currentUser._id);
+        // console.log(isLiked);
         const cardLikeButtonClassName = `...`;
 
         return (
@@ -27,11 +29,12 @@ const Cards = ({ cards, onCardClick, onCardLike }) => {
                 <button
                   //className="button button_like"
                   className={`button_like ${
+                    //isLiked ? "button_lie.liked" : ""
                     card.likes.some((like) => like._id === currentUser._id)
-                      ? "button_like.liked"
+                      ? "button_like liked"
                       : ""
                   }`}
-                  onClick={() => onCardLike}
+                  onClick={() => onCardLike(card)}
                 ></button>
                 <p className="card__counter">{card.likes.length}</p>
               </div>

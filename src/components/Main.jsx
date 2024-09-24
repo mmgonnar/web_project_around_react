@@ -26,10 +26,20 @@ const Main = (props) => {
   const handleCardLike = async (card) => {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     try {
-      const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
+      let newCard;
+      if (isLiked) {
+        newCard = await api.deleteLikeCard(card._id);
+        console.log("card unliked:", newCard);
+      } else {
+        newCard = await api.likeCard(card._id);
+        console.log("Card liked:", newCard);
+      }
+
+      // const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
+      // console.log(newCard);
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
     } catch (error) {
-      console.error("Error updating card like status: ", error);
+      console.error("card like status: ", error);
     }
   };
 
