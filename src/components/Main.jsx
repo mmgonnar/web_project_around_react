@@ -7,7 +7,8 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 /* import Profile from "./Profile"; */
 
 const Main = (props) => {
-  const { currentUser } = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
+  console.log(currentUser);
 
   // const [userName, setUserName] = useState("");
   // const [userDescription, setUserDescription] = useState("");

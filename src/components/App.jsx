@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
@@ -12,9 +12,9 @@ function App() {
   const [isAvatarPopupOpen, setAvatarPopupOpen] = useState(false);
   const [isCardPopupOpen, setCardPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const currentUser = api.getUserInfo();
+  // const currentUser = api.getUserInfo();
 
-  /* const [currentUser, setCurrentUser] = useState({
+  const [currentUser, setCurrentUser] = useState({
     name: "",
     about: "",
     avatar: "",
@@ -31,7 +31,7 @@ function App() {
     };
 
     fetchUserInfo();
-  }, []); */
+  }, []);
 
   const handleEditAvatarClick = () => {
     setAvatarPopupOpen(true);
@@ -64,7 +64,7 @@ function App() {
     setClose(false);
   };
   return (
-    <CurrentUserContext.Provider value={{}}>
+    <CurrentUserContext.Provider value={currentUser}>
       <>
         <Header />
         <Main

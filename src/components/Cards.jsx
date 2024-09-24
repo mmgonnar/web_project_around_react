@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 const Cards = ({ cards, onCardClick }) => {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <div className="cards" id="cards-template">
       {cards.map((card) => {
