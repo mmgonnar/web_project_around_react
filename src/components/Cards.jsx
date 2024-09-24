@@ -39,8 +39,8 @@ const Cards = ({ cards, onCardClick, onCardLike, onCardDelete }) => {
                 <p className="card__counter">{card.likes.length}</p>
               </div>
               <button
-                //className={cardDeleteButtonClassName}
-                className={`${isOwn ? "button_delete" : ""}`}
+                className="button_delete"
+                //className={`${isOwn ? "button_delete" : ""}`}
                 onClick={() => onCardDelete(card._id)}
               ></button>
             </div>
