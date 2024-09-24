@@ -23,6 +23,20 @@ const Main = (props) => {
     fetchData();
   }, []);
 
+  const handleCardLike = async (card) => {
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    try {
+      const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
+      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    } catch (error) {
+      console.error("Error updating card like status: ", error);
+    }
+  };
+
+  if (!currentUser) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       {/* <Profile
@@ -192,7 +206,11 @@ const Main = (props) => {
           </div>
         </div>
       </div>
-      <Cards onCardClick={props.onCardClick} cards={cards} />
+      <Cards
+        onCardClick={props.onCardClick}
+        cards={cards}
+        onCardLike={handleCardLike}
+      />
     </>
   );
 };
