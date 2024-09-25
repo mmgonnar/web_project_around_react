@@ -4,6 +4,7 @@ import PopupWithForm from "./PopupWithForm";
 import api from "../utils/Api";
 import Cards from "./Cards";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import EditProfilePopup from "./EditProfilePopup";
 /* import Profile from "./Profile"; */
 
 const Main = (props) => {
@@ -95,43 +96,47 @@ const Main = (props) => {
       </section>
       {/* Popup Edit */}
       {props.isEditProfilePopupOpen && (
-        <PopupWithForm
-          title="Edit Profile"
-          name="edit"
-          isOpened={props.isEditProfilePopupOpen}
+        <EditProfilePopup
+          isOpen={props.isEditProfilePopupOpen}
           onClose={props.onClose}
-        >
-          <fieldset className="popup__set">
-            <div className="popup__container-input">
-              <input
-                type="text"
-                name="name"
-                id="input-name"
-                className="popup__input popup__input-name"
-                placeholder="Name"
-                minLength="2"
-                maxLength="40"
-                required
-                autoComplete="on"
-              />
-              <span className="popup__error" id="input__error-name"></span>
-            </div>
-            <div className="popup__container-input">
-              <input
-                type="text"
-                name="job"
-                id="input-job"
-                className="popup__input popup__input-job"
-                placeholder="Job"
-                minLength="2"
-                maxLength="200"
-                required
-                autoComplete="on"
-              />
-              <span className="popup__error" id="input__error-job"></span>
-            </div>
-          </fieldset>
-        </PopupWithForm>
+        ></EditProfilePopup>
+        // <PopupWithForm
+        //   title="Edit Profile"
+        //   name="edit"
+        //   isOpened={props.isEditProfilePopupOpen}
+        //   onClose={props.onClose}
+        // >
+        //   <fieldset className="popup__set">
+        //     <div className="popup__container-input">
+        //       <input
+        //         type="text"
+        //         name="name"
+        //         id="input-name"
+        //         className="popup__input popup__input-name"
+        //         placeholder="Name"
+        //         minLength="2"
+        //         maxLength="40"
+        //         required
+        //         autoComplete="on"
+        //       />
+        //       <span className="popup__error" id="input__error-name"></span>
+        //     </div>
+        //     <div className="popup__container-input">
+        //       <input
+        //         type="text"
+        //         name="job"
+        //         id="input-job"
+        //         className="popup__input popup__input-job"
+        //         placeholder="Job"
+        //         minLength="2"
+        //         maxLength="200"
+        //         required
+        //         autoComplete="on"
+        //       />
+        //       <span className="popup__error" id="input__error-job"></span>
+        //     </div>
+        //   </fieldset>
+        // </PopupWithForm>
       )}
       {/* Popup Add */}
       {props.isAddPlacePopupOpen && (
