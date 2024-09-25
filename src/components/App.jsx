@@ -78,6 +78,7 @@ function App() {
           onCardClick={handleCardClick}
           onClose={handleClose}
           selectedCard={selectedCard}
+          setCurrentUser={setCurrentUser}
         />
         <Footer />
       </>

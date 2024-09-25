@@ -1,10 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const PopupWithForm = (props) => {
+  const [isFormValid, setIsFormValid] = useState(false);
   const popupRef = useRef(null);
   const handleClose = () => {
     const popupId = popupRef.current.id;
     props.onClose(popupId);
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if (isFormValid) {
+      props.onSubmit();
+    }
   };
 
   useEffect(() => {
@@ -45,8 +53,11 @@ const PopupWithForm = (props) => {
             {props.children}
             <button
               type="submit"
-              className="button button_submit button_submit-disabled"
-              onClick={handleClose}
+              //className="button button_submit button_submit-disabled"
+              className={`button button_submit ${
+                isFormValid ? "" : "button_submit-disabled"
+              }`}
+              onClick={props.onSubmit}
             >
               Save
             </button>

@@ -33,7 +33,7 @@ const Main = (props) => {
         console.log("Like removed");
       } else {
         newCard = await api.likeCard(card._id);
-        console.log("Liked Card");
+        console.error("Liked Card");
       }
 
       // const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
@@ -45,15 +45,28 @@ const Main = (props) => {
   };
 
   const handleCardDelete = async (cardId) => {
-    console.log("click on tacho");
     try {
       await api.deleteCard(cardId);
       console.log("deleted card");
       setCards((state) => state.filter((c) => c._id !== cardId));
-      console.log("Card deleted");
     } catch (error) {
-      console.log("Error deleting card");
+      console.error("Error deleting card");
     }
+  };
+
+  const handleEditProfile = (name, about) => {
+    console.log(name, about);
+    api
+      .updateUser(name, about)
+      .then((updateUser) => {
+        console.log("User updated");
+        props.setCurrentUser(updateUser);
+        props.onClose("edit");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.error("Error updating user");
+      });
   };
 
   if (!currentUser) {
@@ -99,6 +112,7 @@ const Main = (props) => {
         <EditProfilePopup
           isOpen={props.isEditProfilePopupOpen}
           onClose={props.onClose}
+          onSubmitEditProfile={handleEditProfile}
         ></EditProfilePopup>
         // <PopupWithForm
         //   title="Edit Profile"
