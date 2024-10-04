@@ -18,18 +18,23 @@ const EditProfilePopup = (props) => {
 
   const handleChangeName = (evt) => {
     setName(evt.target.value);
+    //checkFormValidity(evt.target.form);
   };
 
   const handleChangeDescription = (evt) => {
     setDescription(evt.target.value);
   };
 
-  /* const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if (isFormValid) {
-      props.onSubmitEditProfile(name, description);
-    }
+  /*  const checkFormValidity = (form) => {
+    setIsFormValid(form.checkFormValidity());
   }; */
+
+  const handleSubmit = (evt) => {
+    evt.isFormValid();
+    if (isFormValid) {
+      onSubmit();
+    }
+  };
 
   return (
     <PopupWithForm
@@ -37,7 +42,8 @@ const EditProfilePopup = (props) => {
       name="edit"
       isOpened={props.isOpen}
       onClose={props.onClose}
-      onSubmit={props.handleSubmit}
+      onSubmit={handleSubmit}
+      isFormValid={isFormValid}
     >
       <fieldset className="popup__set">
         <div className="popup__container-input">

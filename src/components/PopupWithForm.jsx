@@ -8,13 +8,6 @@ const PopupWithForm = (props) => {
     props.onClose(popupId);
   };
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if (isFormValid) {
-      props.onSubmit();
-    }
-  };
-
   useEffect(() => {
     const handleKeyPress = (evt) => {
       if (evt.key === "Escape") {
@@ -28,6 +21,21 @@ const PopupWithForm = (props) => {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
+
+  /* const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if (isFormValid) {
+      props.onSubmitEditProfile(name, description);
+    }
+  }; */
+
+  const handleSubmit = (evt) => {
+    evt.isFormValid();
+    if (props.isFormValid) {
+      props.onSubmit();
+    }
+  };
+
   return (
     <div
       ref={popupRef}
@@ -53,11 +61,11 @@ const PopupWithForm = (props) => {
             {props.children}
             <button
               type="submit"
-              //className="button button_submit button_submit-disabled"
               className={`button button_submit ${
                 isFormValid ? "" : "button_submit-disabled"
               }`}
-              onClick={props.onSubmit}
+              disabled={!props.isFormValid}
+              onSubmit={handleSubmit()}
             >
               Save
             </button>
