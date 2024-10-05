@@ -19,7 +19,6 @@ const EditProfilePopup = (props) => {
   const handleChangeName = (evt) => {
     setName(evt.target.value);
     checkFormValidity(evt.target.name, evt.target.value);
-    //props.checkFormValidity(evt.target.form);
   };
 
   const handleChangeDescription = (evt) => {
@@ -28,7 +27,6 @@ const EditProfilePopup = (props) => {
   };
 
   const checkFormValidity = (name, value) => {
-    //setIsFormValid(form.checkValidity());
     if (name === "name") {
       setIsFormValid(value.length >= 2 && value.length <= 40);
     }
@@ -39,6 +37,10 @@ const EditProfilePopup = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    props.onUpdateUser({
+      name,
+      about: description,
+    });
     if (isFormValid) {
       props.onSubmitEditProfile(name, description);
     } else {

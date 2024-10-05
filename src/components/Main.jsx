@@ -59,7 +59,6 @@ const Main = (props) => {
     api
       .updateUser(name, about)
       .then((updateUser) => {
-        console.log("User updated");
         props.setCurrentUser(updateUser);
         props.onClose("edit");
       })

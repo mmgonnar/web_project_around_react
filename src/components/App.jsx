@@ -59,6 +59,8 @@ function App() {
     },
   };
 
+  const handleUpdateUser = () => {};
+
   const handleClose = (popupId) => {
     const setClose = handlers[popupId];
     setClose(false);
@@ -79,6 +81,7 @@ function App() {
           onClose={handleClose}
           selectedCard={selectedCard}
           setCurrentUser={setCurrentUser}
+          onUpdateUser={handleUpdateUser}
         />
         <Footer />
       </>
