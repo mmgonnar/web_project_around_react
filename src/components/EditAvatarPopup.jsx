@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-const EditAvatarPopup = () => {
+const EditAvatarPopup = (props) => {
   return;
   <PopupWithForm
     title="Change Profile"
