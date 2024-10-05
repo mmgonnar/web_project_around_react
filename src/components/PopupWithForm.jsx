@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const PopupWithForm = (props) => {
-  const [isFormValid, setIsFormValid] = useState(false);
+  //const [isFormValid, setIsFormValid] = useState(false);
   const popupRef = useRef(null);
   const handleClose = () => {
     const popupId = popupRef.current.id;
@@ -22,19 +22,17 @@ const PopupWithForm = (props) => {
     };
   }, []);
 
-  /* const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if (isFormValid) {
-      props.onSubmitEditProfile(name, description);
-    }
-  }; */
-
-  const handleSubmit = (evt) => {
+  /*  const handleSubmit = (evt) => {
+    console.log(handleSubmit);
     evt.isFormValid();
     if (props.isFormValid) {
       props.onSubmit();
     }
-  };
+  }; */
+
+  /*   const checkFormValidity = (form) => {
+    setIsFormValid(form.checkValidity());
+  }; */
 
   return (
     <div
@@ -62,10 +60,10 @@ const PopupWithForm = (props) => {
             <button
               type="submit"
               className={`button button_submit ${
-                isFormValid ? "" : "button_submit-disabled"
+                props.isFormValid ? "" : "button_submit-disabled"
               }`}
               disabled={!props.isFormValid}
-              onSubmit={handleSubmit()}
+              onClick={props.onSubmit}
             >
               Save
             </button>

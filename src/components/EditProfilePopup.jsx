@@ -18,23 +18,42 @@ const EditProfilePopup = (props) => {
 
   const handleChangeName = (evt) => {
     setName(evt.target.value);
-    //checkFormValidity(evt.target.form);
+    checkFormValidity(evt.target.name, evt.target.value);
+    //props.checkFormValidity(evt.target.form);
   };
 
   const handleChangeDescription = (evt) => {
     setDescription(evt.target.value);
+    checkFormValidity(evt.target.name, evt.target.value);
   };
 
-  /*  const checkFormValidity = (form) => {
-    setIsFormValid(form.checkFormValidity());
-  }; */
-
-  const handleSubmit = (evt) => {
-    evt.isFormValid();
-    if (isFormValid) {
-      onSubmit();
+  const checkFormValidity = (name, value) => {
+    //setIsFormValid(form.checkValidity());
+    if (name === "name") {
+      setIsFormValid(value.length >= 2 && value.length <= 40);
+    }
+    if (name === "job") {
+      setIsFormValid(value.length >= 2 && value.length <= 40);
     }
   };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if (isFormValid) {
+      props.onSubmitEditProfile(name, description);
+    } else {
+      console.log("Error");
+    }
+  };
+
+  useEffect(() => {
+    setIsFormValid(
+      name.length >= 2 &&
+        name.length <= 40 &&
+        description.length >= 2 &&
+        description.length <= 40
+    );
+  }, [name, description]);
 
   return (
     <PopupWithForm
