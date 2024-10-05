@@ -5,6 +5,7 @@ import api from "../utils/Api";
 import Cards from "./Cards";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
+import EditAvatarPopup from "./EditAvatarPopup";
 /* import Profile from "./Profile"; */
 
 const Main = (props) => {
@@ -113,43 +114,6 @@ const Main = (props) => {
           onClose={props.onClose}
           onUpdateUser={props.onUpdateUser}
         ></EditProfilePopup>
-        // <PopupWithForm
-        //   title="Edit Profile"
-        //   name="edit"
-        //   isOpened={props.isEditProfilePopupOpen}
-        //   onClose={props.onClose}
-        // >
-        //   <fieldset className="popup__set">
-        //     <div className="popup__container-input">
-        //       <input
-        //         type="text"
-        //         name="name"
-        //         id="input-name"
-        //         className="popup__input popup__input-name"
-        //         placeholder="Name"
-        //         minLength="2"
-        //         maxLength="40"
-        //         required
-        //         autoComplete="on"
-        //       />
-        //       <span className="popup__error" id="input__error-name"></span>
-        //     </div>
-        //     <div className="popup__container-input">
-        //       <input
-        //         type="text"
-        //         name="job"
-        //         id="input-job"
-        //         className="popup__input popup__input-job"
-        //         placeholder="Job"
-        //         minLength="2"
-        //         maxLength="200"
-        //         required
-        //         autoComplete="on"
-        //       />
-        //       <span className="popup__error" id="input__error-job"></span>
-        //     </div>
-        //   </fieldset>
-        // </PopupWithForm>
       )}
       {/* Popup Add */}
       {props.isAddPlacePopupOpen && (
@@ -196,31 +160,35 @@ const Main = (props) => {
       )}
       {/* Popup Avatar */}
       {props.isAvatarPopupOpen && (
-        <PopupWithForm
-          title="Change Profile"
-          name="avatar"
+        <EditAvatarPopup
           isOpened={props.isAvatarPopupOpen}
           onClose={props.onClose}
-        >
-          <fieldset className="popup__set">
-            <div className="popup__container-input">
-              <input
-                type="url"
-                name="url-avatar"
-                id="input-image-avatar"
-                className="popup__input popup__input-image"
-                placeholder="Image URL"
-                minLength="6"
-                required
-                autoComplete="on"
-              />
-              <span
-                className="popup__error"
-                id="input__error-url-avatar"
-              ></span>
-            </div>
-          </fieldset>
-        </PopupWithForm>
+        ></EditAvatarPopup>
+        // <PopupWithForm
+        //   title="Change Profile"
+        //   name="avatar"
+        //   isOpened={props.isAvatarPopupOpen}
+        //   onClose={props.onClose}
+        // >
+        //   <fieldset className="popup__set">
+        //     <div className="popup__container-input">
+        //       <input
+        //         type="url"
+        //         name="url-avatar"
+        //         id="input-image-avatar"
+        //         className="popup__input popup__input-image"
+        //         placeholder="Image URL"
+        //         minLength="6"
+        //         required
+        //         autoComplete="on"
+        //       />
+        //       <span
+        //         className="popup__error"
+        //         id="input__error-url-avatar"
+        //       ></span>
+        //     </div>
+        //   </fieldset>
+        // </PopupWithForm>
       )}
       {/* Popup Confirmation */}
       <div className="popup popup_confirmation">

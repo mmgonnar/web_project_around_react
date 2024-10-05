@@ -59,9 +59,6 @@ function App() {
     },
   };
 
-  /*  const handleUpdateUser = () => {
-
-  } */
   const handleUpdateUser = (name, about) => {
     api
       .updateUser(name, about)
