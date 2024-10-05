@@ -59,7 +59,21 @@ function App() {
     },
   };
 
-  const handleUpdateUser = () => {};
+  /*  const handleUpdateUser = () => {
+
+  } */
+  const handleUpdateUser = (name, about) => {
+    api
+      .updateUser(name, about)
+      .then((updateUser) => {
+        setCurrentUser(updateUser);
+        handleClose("edit");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.error("Error updating user");
+      });
+  };
 
   const handleClose = (popupId) => {
     const setClose = handlers[popupId];

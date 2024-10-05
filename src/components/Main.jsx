@@ -54,19 +54,19 @@ const Main = (props) => {
     }
   };
 
-  const handleEditProfile = (name, about) => {
-    console.log(name, about);
-    api
-      .updateUser(name, about)
-      .then((updateUser) => {
-        props.setCurrentUser(updateUser);
-        props.onClose("edit");
-      })
-      .catch((error) => {
-        console.log(error);
-        console.error("Error updating user");
-      });
-  };
+  // const handleEditProfile = (name, about) => {
+  //   console.log(name, about);
+  //   api
+  //     .updateUser(name, about)
+  //     .then((updateUser) => {
+  //       props.setCurrentUser(updateUser);
+  //       props.onClose("edit");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       console.error("Error updating user");
+  //     });
+  // };
 
   if (!currentUser) {
     return <div>Loading...</div>;
@@ -111,7 +111,7 @@ const Main = (props) => {
         <EditProfilePopup
           isOpen={props.isEditProfilePopupOpen}
           onClose={props.onClose}
-          onSubmitEditProfile={handleEditProfile}
+          onUpdateUser={props.onUpdateUser}
         ></EditProfilePopup>
         // <PopupWithForm
         //   title="Edit Profile"

@@ -37,12 +37,12 @@ const EditProfilePopup = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.onUpdateUser({
+    /* props.onUpdateUser({
       name,
       about: description,
-    });
+    }); */
     if (isFormValid) {
-      props.onSubmitEditProfile(name, description);
+      props.onUpdateUser(name, description);
     } else {
       console.log("Error");
     }
