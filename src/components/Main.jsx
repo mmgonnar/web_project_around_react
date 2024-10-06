@@ -163,6 +163,7 @@ const Main = (props) => {
         <EditAvatarPopup
           isOpened={props.isAvatarPopupOpen}
           onClose={props.onClose}
+          onUpdateUser={props.onUpdateUser}
         ></EditAvatarPopup>
         // <PopupWithForm
         //   title="Change Profile"
