@@ -34,7 +34,9 @@ function App() {
   }, []);
 
   const handleEditAvatarClick = () => {
+    console.log("click");
     setAvatarPopupOpen(true);
+    console.log("opened");
   };
 
   const handleEditProfileClick = () => {
@@ -72,6 +74,19 @@ function App() {
       });
   };
 
+  const handleUpdateAvatar = (avatar) => {
+    api
+      .setUserInfo(avatar)
+      .then((updateUser) => {
+        setCurrentUser(updateUser);
+        handleClose("avatar");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.error("Error updating avatar");
+      });
+  };
+
   const handleClose = (popupId) => {
     const setClose = handlers[popupId];
     setClose(false);
@@ -93,6 +108,7 @@ function App() {
           selectedCard={selectedCard}
           setCurrentUser={setCurrentUser}
           onUpdateUser={handleUpdateUser}
+          onUpdateAvatar={handleUpdateAvatar}
         />
         <Footer />
       </>

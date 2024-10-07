@@ -31,7 +31,6 @@ const Main = (props) => {
       let newCard;
       if (isLiked) {
         newCard = await api.deleteLikeCard(card._id);
-        console.log("Like removed");
       } else {
         newCard = await api.likeCard(card._id);
         console.error("Liked Card");
@@ -48,26 +47,11 @@ const Main = (props) => {
   const handleCardDelete = async (cardId) => {
     try {
       await api.deleteCard(cardId);
-      console.log("deleted card");
       setCards((state) => state.filter((c) => c._id !== cardId));
     } catch (error) {
       console.error("Error deleting card");
     }
   };
-
-  // const handleEditProfile = (name, about) => {
-  //   console.log(name, about);
-  //   api
-  //     .updateUser(name, about)
-  //     .then((updateUser) => {
-  //       props.setCurrentUser(updateUser);
-  //       props.onClose("edit");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       console.error("Error updating user");
-  //     });
-  // };
 
   if (!currentUser) {
     return <div>Loading...</div>;
@@ -110,7 +94,7 @@ const Main = (props) => {
       {/* Popup Edit */}
       {props.isEditProfilePopupOpen && (
         <EditProfilePopup
-          isOpen={props.isEditProfilePopupOpen}
+          isOpened={props.isEditProfilePopupOpen}
           onClose={props.onClose}
           onUpdateUser={props.onUpdateUser}
         ></EditProfilePopup>
@@ -164,6 +148,7 @@ const Main = (props) => {
           isOpened={props.isAvatarPopupOpen}
           onClose={props.onClose}
           onUpdateUser={props.onUpdateUser}
+          onUpdateAvatar={props.onUpdateAvatar}
         ></EditAvatarPopup>
         // <PopupWithForm
         //   title="Change Profile"

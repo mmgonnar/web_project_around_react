@@ -9,7 +9,7 @@ const EditProfilePopup = (props) => {
   //const currentUser = React.useContext(CurrentUserContext);
 
   useEffect(() => {
-    if (props.isOpen) {
+    if (props.isOpened) {
       setName("");
       setDescription("");
       setIsFormValid(false);
@@ -37,10 +37,6 @@ const EditProfilePopup = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    /* props.onUpdateUser({
-      name,
-      about: description,
-    }); */
     if (isFormValid) {
       props.onUpdateUser(name, description);
     } else {
@@ -61,7 +57,7 @@ const EditProfilePopup = (props) => {
     <PopupWithForm
       title="Edit Profile"
       name="edit"
-      isOpened={props.isOpen}
+      isOpened={props.isOpened}
       onClose={props.onClose}
       onSubmit={handleSubmit}
       isFormValid={isFormValid}

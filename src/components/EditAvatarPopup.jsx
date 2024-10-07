@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 const EditAvatarPopup = (props) => {
+  const avatarInputRef = useRef(null);
+
+  const handleSubmit = (evt) => {
+    console.log("handle submit");
+    evt.preventDefault();
+
+    props.onUpdateAvatar({
+      avatar: avatarInputRef.current.value,
+    });
+  };
+
+  useEffect(() => {
+    if (props.isOpened) {
+    }
+  }, [props.isOpened]);
+
   return (
     <PopupWithForm
       title="Change Profile"
       name="avatar"
-      isOpened={props.isAvatarPopupOpen}
+      isOpened={props.isOpened}
       onClose={props.onClose}
+      onSubmit={handleSubmit}
     >
       <fieldset className="popup__set">
         <div className="popup__container-input">
@@ -20,6 +37,7 @@ const EditAvatarPopup = (props) => {
             minLength="6"
             required
             autoComplete="on"
+            ref={avatarInputRef}
           />
           <span className="popup__error" id="input__error-url-avatar"></span>
         </div>
