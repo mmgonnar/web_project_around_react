@@ -203,7 +203,7 @@ const Main = (props) => {
       <Cards
         onCardClick={props.onCardClick}
         cards={props.cards}
-        onCardLike={props.onCardClick}
+        onCardLike={props.onCardLike}
         onCardDelete={props.onCardDelete}
       />
     </>
