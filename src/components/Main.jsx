@@ -12,7 +12,7 @@ const Main = (props) => {
   const currentUser = useContext(CurrentUserContext);
   // const [cards, setCards] = useState([]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const fetchData = async () => {
       try {
         const cardsData = await api.getCards();
@@ -23,9 +23,9 @@ const Main = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, []); */
 
-  const handleCardLike = async (card) => {
+  /* const handleCardLike = async (card) => {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     try {
       let newCard;
@@ -42,7 +42,7 @@ const Main = (props) => {
     } catch (error) {
       console.error("card like status: ", error);
     }
-  };
+  }; */
 
   const handleCardDelete = async (cardId) => {
     try {
@@ -202,9 +202,9 @@ const Main = (props) => {
       </div>
       <Cards
         onCardClick={props.onCardClick}
-        cards={cards}
-        onCardLike={handleCardLike}
-        onCardDelete={handleCardDelete}
+        cards={props.cards}
+        onCardLike={props.handleCardLike}
+        onCardDelete={props.handleCardDelete}
       />
     </>
   );
