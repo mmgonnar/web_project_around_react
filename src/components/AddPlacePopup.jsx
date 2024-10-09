@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 const AddPlacePopup = (props) => {
+  const addPlaceInputRef = useRef(null);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if (addPlaceInputRef.current.validity.valid) {
+      //props.onAddCard;
+    }
+  };
+
   return (
     <PopupWithForm
       title="New Place"

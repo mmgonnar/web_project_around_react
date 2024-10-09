@@ -130,6 +130,19 @@ function App() {
       });
   };
 
+  const handleAddCard = (link, title) => {
+    api
+      .addCard(link, title)
+      .then((addCard) => {
+        setCurrentUser(addCard);
+        handleClose("add");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.error("Error adding new place");
+      });
+  };
+
   const handleClose = (popupId) => {
     const setClose = handlers[popupId];
     setClose(false);
@@ -155,6 +168,7 @@ function App() {
           cards={cards}
           onCardDelete={handleCardDelete}
           onCardLike={handleCardLike}
+          onAddCard={handleAddCard}
         />
         <Footer />
       </>
