@@ -153,6 +153,7 @@ function App() {
           onUpdateAvatar={handleUpdateAvatar}
           cards={cards}
           onCardDelete={handleCardDelete}
+          onCardLike={handleCardLike}
         />
         <Footer />
       </>
