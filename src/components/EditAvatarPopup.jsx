@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 const EditAvatarPopup = (props) => {
-  const avatarInputRef = useRef("");
+  const avatarInputRef = useRef(null);
   const [link, setLink] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
@@ -20,8 +20,8 @@ const EditAvatarPopup = (props) => {
   };
 
   const handleUpdateLink = (evt) => {
-    console.log("x");
-    setLink(evt.target.validity.value);
+    setLink(evt.target.value);
+    console.log(evt);
     setIsFormValid(evt.target.validity.valid);
   };
 
@@ -53,8 +53,8 @@ const EditAvatarPopup = (props) => {
             required
             autoComplete="on"
             onChange={handleUpdateLink}
-            ref={avatarInputRef || ""}
-            value={link || ""}
+            ref={avatarInputRef}
+            value={link}
           />
           <span className="popup__error" id="input__error-url-avatar"></span>
         </div>
