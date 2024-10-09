@@ -76,9 +76,9 @@ function App() {
 
   const handleUpdateAvatar = (avatar) => {
     api
-      .setUserInfo(avatar)
-      .then((updateUser) => {
-        setCurrentUser(updateUser);
+      .updateAvatar(avatar)
+      .then((updateAvatar) => {
+        setCurrentUser(updateAvatar);
         handleClose("avatar");
       })
       .catch((error) => {

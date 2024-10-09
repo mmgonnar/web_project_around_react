@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const PopupWithForm = (props) => {
-  //const [isFormValid, setIsFormValid] = useState(false);
   const popupRef = useRef(null);
   const handleClose = () => {
     const popupId = popupRef.current.id;
@@ -21,18 +20,6 @@ const PopupWithForm = (props) => {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
-
-  /*  const handleSubmit = (evt) => {
-    console.log(handleSubmit);
-    evt.isFormValid();
-    if (props.isFormValid) {
-      props.onSubmit();
-    }
-  }; */
-
-  /*   const checkFormValidity = (form) => {
-    setIsFormValid(form.checkValidity());
-  }; */
 
   return (
     <div
