@@ -44,7 +44,7 @@ const Main = (props) => {
     }
   }; */
 
-  const handleCardDelete = async (cardId) => {
+  /* const handleCardDelete = async (cardId) => {
     try {
       await api.deleteCard(cardId);
       setCards((state) => state.filter((c) => c._id !== cardId));
@@ -55,7 +55,7 @@ const Main = (props) => {
 
   if (!currentUser) {
     return <div>Loading...</div>;
-  }
+  } */
 
   return (
     <>

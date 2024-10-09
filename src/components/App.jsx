@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-import Cards from "./Cards";
+//import Cards from "./Cards";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import api from "../utils/Api";
 
@@ -151,6 +151,7 @@ function App() {
           setCurrentUser={setCurrentUser}
           onUpdateUser={handleUpdateUser}
           onUpdateAvatar={handleUpdateAvatar}
+          cards={cards}
         />
         <Footer />
       </>
