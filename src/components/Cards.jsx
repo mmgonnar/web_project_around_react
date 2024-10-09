@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-const Cards = ({ cards, onCardClick, onCardLike, onCardDelete }) => {
+const Cards = (props) => {
   const currentUser = useContext(CurrentUserContext);
 
   return (
     <div className="cards" id="cards-template">
-      {cards.map((card) => {
+      {props.cards.map((card) => {
         const isOwn = card.owner._id === currentUser._id;
         //console.log(isOwn);
         /* const cardDeleteButtonClassName = `button_delete  ${
@@ -18,7 +18,7 @@ const Cards = ({ cards, onCardClick, onCardLike, onCardDelete }) => {
 
         return (
           <div className="card" id={card._id} key={card._id}>
-            <div onClick={() => onCardClick(card)}>
+            <div onClick={() => props.onCardClick(card)}>
               <img className="card__image" alt={card.name} src={card.link} />
             </div>
             <div className="card__info">
@@ -34,14 +34,15 @@ const Cards = ({ cards, onCardClick, onCardLike, onCardDelete }) => {
                       ? "button_like liked"
                       : ""
                   }`}
-                  onClick={() => onCardLike(card)}
+                  //onClick={() => onCardLike(card)}
+                  onClick={() => props.onCardLike(card)}
                 ></button>
                 <p className="card__counter">{card.likes.length}</p>
               </div>
               <button
                 //className="button_delete"
                 className={`${isOwn ? "button_delete" : ""}`}
-                onClick={() => onCardDelete(card._id)}
+                onClick={() => props.onCardDelete(card._id)}
               ></button>
             </div>
           </div>

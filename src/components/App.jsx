@@ -67,6 +67,7 @@ function App() {
   };
 
   const handleCardDelete = async (cardId) => {
+    console.log("x");
     try {
       await api.deleteCard(cardId);
       setCards((state) => state.filter((c) => c._id !== cardId));

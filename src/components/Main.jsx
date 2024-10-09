@@ -203,8 +203,8 @@ const Main = (props) => {
       <Cards
         onCardClick={props.onCardClick}
         cards={props.cards}
-        onCardLike={props.handleCardLike}
-        onCardDelete={props.handleCardDelete}
+        onCardLike={props.onCardClick}
+        onCardDelete={props.onCardDelete}
       />
     </>
   );
