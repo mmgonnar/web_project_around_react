@@ -34,6 +34,19 @@ function App() {
     fetchUserInfo();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const cardsData = await api.getCards();
+        setCards(cardsData);
+      } catch (error) {
+        console.error("Error fetching user data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleEditAvatarClick = () => {
     console.log("click");
     setAvatarPopupOpen(true);
