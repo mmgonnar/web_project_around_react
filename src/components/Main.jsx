@@ -10,7 +10,7 @@ import EditAvatarPopup from "./EditAvatarPopup";
 
 const Main = (props) => {
   const currentUser = useContext(CurrentUserContext);
-  const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
