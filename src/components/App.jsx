@@ -47,6 +47,25 @@ function App() {
     fetchData();
   }, []);
 
+  const handleCardLike = async (card) => {
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    try {
+      let newCard;
+      if (isLiked) {
+        newCard = await api.deleteLikeCard(card._id);
+      } else {
+        newCard = await api.likeCard(card._id);
+        console.error("Liked Card");
+      }
+
+      // const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
+      // console.log(newCard);
+      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    } catch (error) {
+      console.error("card like status: ", error);
+    }
+  };
+
   const handleEditAvatarClick = () => {
     console.log("click");
     setAvatarPopupOpen(true);
