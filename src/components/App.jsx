@@ -152,6 +152,7 @@ function App() {
           onUpdateUser={handleUpdateUser}
           onUpdateAvatar={handleUpdateAvatar}
           cards={cards}
+          onCardDelete={handleCardDelete}
         />
         <Footer />
       </>
