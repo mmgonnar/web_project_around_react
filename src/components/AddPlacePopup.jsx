@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-const AddPlacePopup = () => {
+const AddPlacePopup = (props) => {
   return (
     <PopupWithForm
       title="New Place"
