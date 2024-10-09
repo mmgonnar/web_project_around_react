@@ -66,6 +66,15 @@ function App() {
     }
   };
 
+  const handleCardDelete = async (cardId) => {
+    try {
+      await api.deleteCard(cardId);
+      setCards((state) => state.filter((c) => c._id !== cardId));
+    } catch (error) {
+      console.error("Error deleting card");
+    }
+  };
+
   const handleEditAvatarClick = () => {
     console.log("click");
     setAvatarPopupOpen(true);
