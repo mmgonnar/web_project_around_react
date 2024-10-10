@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
-//import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 const EditProfilePopup = (props) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
-  //const currentUser = React.useContext(CurrentUserContext);
 
   useEffect(() => {
     if (props.isOpened) {
@@ -40,7 +38,7 @@ const EditProfilePopup = (props) => {
     if (isFormValid) {
       props.onUpdateUser(name, description);
     } else {
-      console.log("Error");
+      console.error("Error");
     }
   };
 
