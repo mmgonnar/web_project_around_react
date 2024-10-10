@@ -130,11 +130,12 @@ function App() {
       });
   };
 
-  const handleAddCard = (link, title) => {
+  const handleNewCard = (link, title) => {
     api
-      .addCard(link, title)
+      .newCard(link, title)
       .then((addCard) => {
-        setCurrentUser(addCard);
+        setCards([...cards, addCard]);
+        //setCurrentUser(addCard);
         handleClose("add");
       })
       .catch((error) => {
@@ -168,7 +169,7 @@ function App() {
           cards={cards}
           onCardDelete={handleCardDelete}
           onCardLike={handleCardLike}
-          onAddCard={handleAddCard}
+          onAddCard={handleNewCard}
         />
         <Footer />
       </>

@@ -141,6 +141,7 @@ const Main = (props) => {
         <AddPlacePopup
           isOpened={props.isAddPlacePopupOpen}
           onClose={props.onClose}
+          onAddCard={props.onAddCard}
         ></AddPlacePopup>
       )}
       {/* Popup Image */}

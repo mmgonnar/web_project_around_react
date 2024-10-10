@@ -21,7 +21,6 @@ const EditAvatarPopup = (props) => {
 
   const handleUpdateLink = (evt) => {
     setLink(evt.target.value);
-    console.log(evt);
     setIsFormValid(evt.target.validity.valid);
   };
 
