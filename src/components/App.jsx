@@ -127,7 +127,11 @@ function App() {
     api
       .newCard(link, title)
       .then((addCard) => {
-        setCards([...cards, addCard]);
+        console.log(addCard);
+        //setCards([addCard, ...cards]);
+        cards.unshift(addCard);
+        setCards(cards);
+        console.log(cards);
         handleClose("add");
       })
       .catch((error) => {
