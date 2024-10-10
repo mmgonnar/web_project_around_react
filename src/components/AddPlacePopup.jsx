@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 const AddPlacePopup = (props) => {
-  const addPlaceInputRef = useRef(null);
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
@@ -39,28 +38,13 @@ const AddPlacePopup = (props) => {
     }
   };
 
-  console.log(isFormValid);
   const checkFormValidity = () => {
     if (isTitleValid && isLinkValid) {
       setIsFormValid(true);
     } else {
       setIsFormValid(false);
     }
-    /* if (title.length >= 2 && title.length <= 40) {
-      setIsFormValid(true);
-      //setIsFormValid(title.length >= 2 && title.length <= 40);
-    }
-    if (link.target.validity.valid) {
-      setIsFormValid(true);
-      //setIsFormValid(link.target.validity.valid);
-    } */
   };
-
-  // const checkFormValidity = () => {
-  //   const isTitleValid = title.trim() !== "";
-  //   const isLinkValid = link.trim() !== "";
-  //   setIsFormValid(isTitleValid && isLinkValid);
-  // };
 
   return (
     <PopupWithForm
@@ -99,7 +83,6 @@ const AddPlacePopup = (props) => {
             required
             autoComplete="on"
             value={link}
-            ref={addPlaceInputRef}
             onChange={handleChangeLink}
           />
           <span className="popup__error" id="input__error-url"></span>
