@@ -1,69 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ImagePopup from "./ImagePopup";
-import PopupWithForm from "./PopupWithForm";
-import api from "../utils/Api";
 import Cards from "./Cards";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-/* import Profile from "./Profile"; */
 
 const Main = (props) => {
   const currentUser = useContext(CurrentUserContext);
-  // const [cards, setCards] = useState([]);
-
-  /* useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const cardsData = await api.getCards();
-        setCards(cardsData);
-      } catch (error) {
-        console.error("Error fetching user data: ", error);
-      }
-    };
-
-    fetchData();
-  }, []); */
-
-  /* const handleCardLike = async (card) => {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-    try {
-      let newCard;
-      if (isLiked) {
-        newCard = await api.deleteLikeCard(card._id);
-      } else {
-        newCard = await api.likeCard(card._id);
-        console.error("Liked Card");
-      }
-
-      // const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
-      // console.log(newCard);
-      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-    } catch (error) {
-      console.error("card like status: ", error);
-    }
-  }; */
-
-  /* const handleCardDelete = async (cardId) => {
-    try {
-      await api.deleteCard(cardId);
-      setCards((state) => state.filter((c) => c._id !== cardId));
-    } catch (error) {
-      console.error("Error deleting card");
-    }
-  };
-
-  if (!currentUser) {
-    return <div>Loading...</div>;
-  } */
 
   return (
     <>
-      {/* <Profile
-        isAvatarPopupOpen={isAvatarPopupOpen}
-        isAddPlacePopupOpen={isAddPlacePopupOpen}
-      /> */}
       <section className="profile">
         <div className="profile__container">
           <img
@@ -102,42 +49,6 @@ const Main = (props) => {
       )}
       {/* Popup Add */}
       {props.isAddPlacePopupOpen && (
-        // <PopupWithForm
-        //   title="New Place"
-        //   name="add"
-        //   isOpened={props.isAddPlacePopupOpen}
-        //   onClose={props.onClose}
-        // >
-        //   <fieldset className="popup__set">
-        //     <div className="popup__container-input">
-        //       <input
-        //         type="text"
-        //         name="title"
-        //         id="input-title"
-        //         className="popup__input popup__input-title"
-        //         placeholder="Title"
-        //         minLength="2"
-        //         maxLength="30"
-        //         required
-        //         autoComplete="on"
-        //       />
-        //       <span className="popup__error" id="input__error-title"></span>
-        //     </div>
-        //     <div className="popup__container-input">
-        //       <input
-        //         type="url"
-        //         name="url"
-        //         id="input-image-add"
-        //         className="popup__input popup__input-image"
-        //         placeholder="Image URL"
-        //         minLength="6"
-        //         required
-        //         autoComplete="on"
-        //       />
-        //       <span className="popup__error" id="input__error-url"></span>
-        //     </div>
-        //   </fieldset>
-        // </PopupWithForm>
         <AddPlacePopup
           isOpened={props.isAddPlacePopupOpen}
           onClose={props.onClose}
@@ -156,31 +67,6 @@ const Main = (props) => {
           onUpdateUser={props.onUpdateUser}
           onUpdateAvatar={props.onUpdateAvatar}
         ></EditAvatarPopup>
-        // <PopupWithForm
-        //   title="Change Profile"
-        //   name="avatar"
-        //   isOpened={props.isAvatarPopupOpen}
-        //   onClose={props.onClose}
-        // >
-        //   <fieldset className="popup__set">
-        //     <div className="popup__container-input">
-        //       <input
-        //         type="url"
-        //         name="url-avatar"
-        //         id="input-image-avatar"
-        //         className="popup__input popup__input-image"
-        //         placeholder="Image URL"
-        //         minLength="6"
-        //         required
-        //         autoComplete="on"
-        //       />
-        //       <span
-        //         className="popup__error"
-        //         id="input__error-url-avatar"
-        //       ></span>
-        //     </div>
-        //   </fieldset>
-        // </PopupWithForm>
       )}
       {/* Popup Confirmation */}
       <div className="popup popup_confirmation">
