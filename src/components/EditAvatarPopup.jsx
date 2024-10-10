@@ -13,10 +13,6 @@ const EditAvatarPopup = (props) => {
     } else {
       console.error("Invalid link");
     }
-
-    /* props.onUpdateAvatar({
-      avatar: avatarInputRef.current.value,
-    }); */
   };
 
   const handleUpdateLink = (evt) => {
