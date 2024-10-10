@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-//import Cards from "./Cards";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import api from "../utils/Api";
 
@@ -13,7 +12,6 @@ function App() {
   const [isCardPopupOpen, setCardPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [cards, setCards] = useState([]);
-  // const currentUser = api.getUserInfo();
 
   const [currentUser, setCurrentUser] = useState({
     name: "",
@@ -58,8 +56,6 @@ function App() {
         console.error("Liked Card");
       }
 
-      // const newCard = await api.changeLikeCardStatus(card._id, !isLiked);
-      // console.log(newCard);
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
     } catch (error) {
       console.error("card like status: ", error);
@@ -67,7 +63,6 @@ function App() {
   };
 
   const handleCardDelete = async (cardId) => {
-    console.log("x");
     try {
       await api.deleteCard(cardId);
       setCards((state) => state.filter((c) => c._id !== cardId));
@@ -77,9 +72,7 @@ function App() {
   };
 
   const handleEditAvatarClick = () => {
-    console.log("click");
     setAvatarPopupOpen(true);
-    console.log("opened");
   };
 
   const handleEditProfileClick = () => {
@@ -135,7 +128,6 @@ function App() {
       .newCard(link, title)
       .then((addCard) => {
         setCards([...cards, addCard]);
-        //setCurrentUser(addCard);
         handleClose("add");
       })
       .catch((error) => {
