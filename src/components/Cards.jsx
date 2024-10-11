@@ -4,7 +4,6 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 const Cards = (props) => {
   const currentUser = useContext(CurrentUserContext);
 
-  console.log(props);
   return (
     <div className="cards" id="cards-template">
       {props.cards.map((card) => {
